@@ -20,7 +20,11 @@ export class LoginPage {
 
   loginForm: FormGroup;
 
-  constructor(private alertCtrl: AlertController, private authService: AuthService,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    private alertCtrl: AlertController,
+     private authService: AuthService,
+     public navCtrl: NavController, 
+     public navParams: NavParams) {
   }
 
   ngOnInit(){
