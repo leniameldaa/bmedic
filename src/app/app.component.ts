@@ -26,8 +26,8 @@ export class MyApp {
       splashScreen: SplashScreen,
       private menuCtrl: MenuController) {
     firebase.initializeApp({
-      apiKey: "AIzaSyAw2WVW6REr4iM4WTOe9oWe8xuER8NMiO8",
-      authDomain: "bmedic-70b1a.firebaseapp.com"
+      apiKey: "AIzaSyBh-3YvuV6tkKoBKeueUl8Tj4ZZ8I0QwYM",
+      authDomain: "bmedic-app.firebaseapp.com"
     });
 
     firebase.auth().onAuthStateChanged(user=>{
