@@ -16,6 +16,7 @@ export class MyApp {
   rootPage:any = LoginPage;
   loginPage = LoginPage;
   tabsPage = TabsPage;
+  
   // homePage= HomePage;
 
   nav : NavController;

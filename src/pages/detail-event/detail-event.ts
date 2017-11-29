@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {NotulenPage} from "../notulen/notulen";
+
 /**
- * Generated class for the RapatPage page.
+ * Generated class for the DetailEventPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,19 +10,16 @@ import {NotulenPage} from "../notulen/notulen";
 
 @IonicPage()
 @Component({
-  selector: 'page-rapat',
-  templateUrl: 'rapat.html',
+  selector: 'page-detail-event',
+  templateUrl: 'detail-event.html',
 })
-export class RapatPage {
+export class DetailEventPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad RapatPage');
+    console.log('ionViewDidLoad DetailEventPage');
   }
 
-  notulen(){
-    this.navCtrl.push(NotulenPage);
-  }
 }
