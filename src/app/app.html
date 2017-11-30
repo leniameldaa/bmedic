@@ -1,1 +1,21 @@
-<ion-nav [root]="tabsPage"></ion-nav>
+<ion-menu [content]="sideSignContent">
+    <ion-header>
+        <ion-toolbar text-center>
+            <h2>Menu</h2>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <ion-list>
+            <button *ngIf="flag==false" ion-item (click)="onLoad(loginPage)">
+                <ion-icon name="log-in" item-left></ion-icon>
+                Login
+            </button>
+            <button *ngIf="flag==true" ion-item (click)="logout()">
+                <ion-icon name="log-out" item-left></ion-icon>
+                Logout
+            </button>
+        </ion-list>
+    </ion-content>
+</ion-menu>
+
+<ion-nav [root]="tabsPage" #sideSignContent></ion-nav>

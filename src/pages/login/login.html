@@ -7,6 +7,11 @@
 <ion-header>
   
     <ion-navbar>
+      <ion-buttons start>
+          <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+      </ion-buttons>
       <ion-title>Please Login First</ion-title>
     </ion-navbar>
   
@@ -14,23 +19,20 @@
   
   
   <ion-content padding>
-    <img src="../assets/imgs/logomedic.png" alt="fak">
-    <form [formGroup]="loginForm" (ngSubmit)="login()">
-    <ion-list>
+    <img src="../assets/imgs/logomedic.png" alt="logo_medic" style="width:100%">
+    <form #f="ngForm" (ngSubmit)="login(f)">
+      <ion-list>
         <ion-item>
-          <!-- <ion-label floating>Username</ion-label> -->
-          <ion-input type="email" formControlName="email" placeholder="Type your email..."></ion-input>
+          <ion-label fixed>Email</ion-label>
+          <ion-input type="email" name="email" required placeholder="Email Address Here" clearInput ngModel></ion-input>
         </ion-item>
-      
         <ion-item>
-          <!-- <ion-label floating>Password</ion-label> -->
-          <ion-input type="password" formControlName="password" placeholder="Type password..."></ion-input>
+          <ion-label fixed>Password</ion-label>
+          <ion-input type="password" name="password" required placeholder="Password Here" clearInput ngModel></ion-input>
         </ion-item>
-      
-        <div padding>
-          <button ion-button type="submit" color="primary" block [disabled]="!loginForm.valid">Sign In</button>
-        </div>
+        <p *ngIf="y==false" style="color:red; float:right">{{error}}</p>
       </ion-list>
+      <button ion-button type="submit" color="secondary" block [disabled]="!f.valid">Login</button>
     </form>
   </ion-content>
   

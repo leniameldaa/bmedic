@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Platform, MenuController, NavController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -8,23 +8,27 @@ import { LoginPage } from '../pages/login/login';
 import { TabsPage } from "../pages/tabs/tabs";
 
 import firebase from 'firebase';
+import { AuthService } from '../services/authService';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = LoginPage;
+  //rootPage:any = LoginPage;
   loginPage = LoginPage;
   tabsPage = TabsPage;
   // homePage= HomePage;
 
-  nav : NavController;
+  private flag = false;
+
+  @ViewChild('sideSignContent') nav : NavController;
 
   constructor(
       platform: Platform,
       statusBar: StatusBar,
       splashScreen: SplashScreen,
-      private menuCtrl: MenuController) {
+      private menuCtrl: MenuController,
+      private authService: AuthService) {
     firebase.initializeApp({
       apiKey: "AIzaSyBh-3YvuV6tkKoBKeueUl8Tj4ZZ8I0QwYM",
       authDomain: "bmedic-app.firebaseapp.com"
@@ -32,9 +36,11 @@ export class MyApp {
 
     firebase.auth().onAuthStateChanged(user=>{
       if(user){
+        this.flag = true;
         this.nav.setRoot(this.tabsPage);
-        this.rootPage="HomePage";
+        // this.rootPage="HomePage";
       }else{
+        this.flag = false;
         this.nav.setRoot(this.loginPage);
       }
     });
@@ -50,6 +56,10 @@ export class MyApp {
   onLoad(page: any) {
     this.nav.setRoot(page);
     this.menuCtrl.close();
+  }
+
+  logout(){
+    this.authService.logout();
   }
 }
 

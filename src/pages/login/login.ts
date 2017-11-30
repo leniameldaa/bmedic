@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { AlertController, IonicPage, NavController, NavParams } from 'ionic-angular';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-
-import {AuthService } from '../../services/auth';
+import { AlertController, IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { NgForm } from '@angular/forms';
 import { HomePage } from '../home/home';
+import { AuthService } from '../../services/authService';
+//import { AngularFireDatabase } from 'angularfire2/database';
+
 /**
  * Generated class for the LoginPage page.
  *
@@ -18,46 +19,52 @@ import { HomePage } from '../home/home';
 })
 export class LoginPage {
 
-  loginForm: FormGroup;
+  // arrData = [];
 
   constructor(
     private alertCtrl: AlertController,
-     private authService: AuthService,
-     public navCtrl: NavController, 
-     public navParams: NavParams) {
+    private authService: AuthService,
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public loadingCtrl: LoadingController,
+    /*private fdb: AngularFireDatabase*/) {
+      /*this.fdb.list("/myUsers/").valueChanges().subscribe(_data => {
+        this.arrData = _data;
+        console.log(this.arrData);
+      })
+      this.fdb.list("/myUsers/").push("aa");*/
   }
 
-  ngOnInit(){
-    this.initializeForm();
+  y = true;
+  error = '';
+
+  ionViewDidLoad() {
+    //console.log('ionViewDidLoad LoginPage');
   }
 
-  initializeForm(){
-    this.loginForm = new FormGroup({
-      email: new FormControl(null,Validators.required),
-      password: new FormControl(null, Validators.required)
+
+  login(form: NgForm){
+    let x = this.authService.signin(form.value.email, form.value.password);
+    let loading = this.loadingCtrl.create({
+      spinner: 'crescent',
+      content: `
+        <div class="custom-spinner-container">
+          <div class="custom-spinner-box">Login</div>
+        </div>`,
+      dismissOnPageChange: true
+    });
+    loading.present();
+
+    x.catch(function(error){
+      let errorCode = error.code;
+      let errorMessage = error.message;
+      console.log(error);
+      loading.dismiss(errorMessage);
+    });
+
+    loading.onDidDismiss((err:string) => {
+      this.y = false;
+      this.error = err;
     });
   }
-
-  login(){
-    this.authService.signin(this.loginForm.value.email, 
-      this.loginForm.value.password).then(
-        authdata=>{
-          let alert = this.alertCtrl.create({
-            message: "Login Success!",
-            buttons:[
-              {
-                text:"OK",
-                role:'cancel',
-                handler: () =>{this.navCtrl.setRoot(HomePage);}
-              }
-            ]
-          });
-          alert.present();
-        }
-      )
-  }
-  // ionViewDidLoad() {
-  //   console.log('ionViewDidLoad LoginPage');
-  // }
-
 }
