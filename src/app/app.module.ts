@@ -14,8 +14,10 @@ import { JadwalPage } from '../pages/jadwal/jadwal';
 import { EventPage } from '../pages/event/event';
 import { NotulenPage } from "../pages/notulen/notulen";
 import { DetailEventPage } from "../pages/detail-event/detail-event";
+
 //Service
 import { AuthService } from '../services/authService';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import { AuthService } from '../services/authService';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp),
     //AngularFireDatabaseModule,
     //AngularFireModule.initializeApp(config),
