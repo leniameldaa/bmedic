@@ -1,6 +1,6 @@
 {
   "name": "mobile2_bmedic",
-  "app_id": "",
+  "app_id": "6b687265",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
