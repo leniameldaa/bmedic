@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { DetailEventPage} from "../detail-event/detail-event";
+
 /**
- * Generated class for the EventPage page.
+ * Generated class for the DetailEventPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,19 +10,16 @@ import { DetailEventPage} from "../detail-event/detail-event";
 
 @IonicPage()
 @Component({
-  selector: 'page-event',
-  templateUrl: 'event.html',
+  selector: 'page-detail-event',
+  templateUrl: 'detail-event.html',
 })
-export class EventPage {
+export class DetailEventPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad EventPage');
+    console.log('ionViewDidLoad DetailEventPage');
   }
 
-  detail(){
-    this.navCtrl.push(DetailEventPage);
-  }
 }

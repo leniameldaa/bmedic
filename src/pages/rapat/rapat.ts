@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import {NotulenPage} from "../notulen/notulen";
 /**
  * Generated class for the RapatPage page.
  *
@@ -22,4 +22,7 @@ export class RapatPage {
     console.log('ionViewDidLoad RapatPage');
   }
 
+  notulen(){
+    this.navCtrl.push(NotulenPage);
+  }
 }
