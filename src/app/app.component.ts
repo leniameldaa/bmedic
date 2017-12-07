@@ -32,7 +32,8 @@ export class MyApp {
       private authService: AuthService) {
     firebase.initializeApp({
       apiKey: "AIzaSyBh-3YvuV6tkKoBKeueUl8Tj4ZZ8I0QwYM",
-      authDomain: "bmedic-app.firebaseapp.com"
+      authDomain: "bmedic-app.firebaseapp.com",
+      databaseURL: "https://bmedic-app.firebaseio.com"
     });
 
     firebase.auth().onAuthStateChanged(user=>{

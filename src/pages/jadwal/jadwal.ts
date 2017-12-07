@@ -5,6 +5,7 @@ import { Http,Response } from '@angular/http';
 import { User } from '../../data/user.interface';
 
 import { AuthService } from '../../services/authService';
+import firebase from "firebase";
 import 'rxjs';
 
 /**
@@ -21,34 +22,46 @@ import 'rxjs';
 })
 export class JadwalPage {
 
-  get : string
-  respon : string = "a"
+  private apaAdmin : any
 
   constructor(public navCtrl: NavController,
    public navParams: NavParams,
    public http: Http,
    private authService: AuthService) {
+     
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad JadwalPage');
   }
 
+  ionViewDidEnter() {
+    this.apaAdmin = this.cekAdmin()
+    console.log(this.apaAdmin)
+  }
+
+  cekAdmin(){
+    //cek admin atau tidak
+    var uId = firebase.auth().currentUser.uid
+    firebase.database().ref("userTable/"+ uId).once('value').then(function(snapshot) {
+      var isAdmin = snapshot.val().admin;
+      console.log(isAdmin)
+      return isAdmin
+    });
+  }
+
   ambilData(){
-    this.authService.getActiveUser().getIdToken()
-    .then((token:string) =>{
-      // console.log(token);
-      // const uid = 'R2TdSHeu5offP4tq8BMlMyvoKDB2'//this.authService.getActiveUser().uid;
-      this.http
-        .get('https://bmedic-app.firebaseio.com/userTable/naufal.json')
-        .map((response : Response) => {
-          console.log("masuk");
-          this.respon = response.json()
-            // this.get = response.json();
-            
-            // return this.favoriteQuotes;
-        })
-        console.log(this.respon);
+    var a = firebase.database().ref("userTable/naufal").once('value').then(function(snapshot) {
+      var email = snapshot.val().email;
+      console.log(email)  
+    });
+  }
+
+  setData(){
+    var uId = firebase.auth().currentUser.uid
+    firebase.database().ref('userTable/'+ uId).set({
+      admin: true,
+      email: "naufal.irfan@student.umn.ac.id"
     })
   }
 }
