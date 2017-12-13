@@ -45,7 +45,7 @@ export class JadwalPage {
           console.log("masuk");
           this.respon = response.json()
             // this.get = response.json();
-            
+            console.log(this.respon);
             // return this.favoriteQuotes;
         })
         console.log(this.respon);
