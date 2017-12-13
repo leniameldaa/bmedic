@@ -27,12 +27,7 @@ export class LoginPage {
     public navCtrl: NavController, 
     public navParams: NavParams,
     public loadingCtrl: LoadingController,
-    /*private fdb: AngularFireDatabase*/) {
-      /*this.fdb.list("/myUsers/").valueChanges().subscribe(_data => {
-        this.arrData = _data;
-        console.log(this.arrData);
-      })
-      this.fdb.list("/myUsers/").push("aa");*/
+    ) {
   }
 
   y = true;
