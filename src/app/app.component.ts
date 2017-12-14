@@ -21,6 +21,7 @@ export class MyApp {
   // homePage= HomePage;
 
   private flag = false;
+  admin = {}
 
   @ViewChild('sideSignContent') nav : NavController;
 
@@ -33,12 +34,15 @@ export class MyApp {
     firebase.initializeApp({
       apiKey: "AIzaSyBh-3YvuV6tkKoBKeueUl8Tj4ZZ8I0QwYM",
       authDomain: "bmedic-app.firebaseapp.com",
-      databaseURL: "https://bmedic-app.firebaseio.com"
+      databaseURL: "https://bmedic-app.firebaseio.com"      
     });
 
     firebase.auth().onAuthStateChanged(user=>{
       if(user){
         this.flag = true;
+        this.admin = this.authService.cekAdmin()
+        console.log(this.admin)
+        // console.log(this.authService.isAdmin)
         this.nav.setRoot(this.tabsPage);
         // this.rootPage="HomePage";
       }else{

@@ -22,8 +22,8 @@ import 'rxjs';
 })
 export class JadwalPage {
 
-  private apaAdmin : any
-
+  user = {}
+  
   constructor(public navCtrl: NavController,
    public navParams: NavParams,
    public http: Http,
@@ -31,29 +31,20 @@ export class JadwalPage {
      
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad JadwalPage');
+  ionViewDidLoad(){
+    this.cekAdmin()
   }
 
   ionViewDidEnter() {
-    this.apaAdmin = this.cekAdmin()
-    console.log(this.apaAdmin)
-  }
-
-  cekAdmin(){
-    //cek admin atau tidak
-    var uId = firebase.auth().currentUser.uid
-    firebase.database().ref("userTable/"+ uId).once('value').then(function(snapshot) {
-      var isAdmin = snapshot.val().admin;
-      console.log(isAdmin)
-      return isAdmin
-    });
+    // console.log(this.cekAdmin())
+    //this.cekAdmin()// this.apaAdmin = 
+    // console.log(this.apaAdmin)
   }
 
   ambilData(){
     var a = firebase.database().ref("userTable/naufal").once('value').then(function(snapshot) {
       var email = snapshot.val().email;
-      console.log(email)  
+      console.log(email)
     });
   }
 
@@ -64,4 +55,18 @@ export class JadwalPage {
       email: "naufal.irfan@student.umn.ac.id"
     })
   }
+
+  cekAdmin(){
+    //cek admin atau tidak
+    var uId = firebase.auth().currentUser.uid
+    var userTable = firebase.database().ref("userTable/").child(uId)
+    return userTable.on('value', data =>{
+        this.user = data.val()
+        // console.log(this.user)
+    })
+    // console.log(this.user)
+    // console.log(this.isAdmin)
+    // console.log(hasil)
+    // this.isAdmin
+}
 }
