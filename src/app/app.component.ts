@@ -40,11 +40,9 @@ export class MyApp {
     firebase.auth().onAuthStateChanged(user=>{
       if(user){
         this.flag = true;
-        this.admin = this.authService.cekAdmin()
-        console.log(this.admin)
-        // console.log(this.authService.isAdmin)
+        console.log(this.authService.cekAdmin())
+        console.log(this.authService.user)
         this.nav.setRoot(this.tabsPage);
-        // this.rootPage="HomePage";
       }else{
         this.flag = false;
         this.nav.setRoot(this.loginPage);

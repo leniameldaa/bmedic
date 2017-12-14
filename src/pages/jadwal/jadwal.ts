@@ -22,14 +22,8 @@ import 'rxjs';
 })
 export class JadwalPage {
 
-<<<<<<< HEAD
   user = {}
   
-=======
-  private apaAdmin : any
-  //x = false;
-
->>>>>>> a5f25e00c7e6db43671c96c6a236c1309836d680
   constructor(public navCtrl: NavController,
    public navParams: NavParams,
    public http: Http,
@@ -37,16 +31,6 @@ export class JadwalPage {
      
   }
 
-<<<<<<< HEAD
-  ionViewDidLoad(){
-    this.cekAdmin()
-  }
-
-  ionViewDidEnter() {
-    // console.log(this.cekAdmin())
-    //this.cekAdmin()// this.apaAdmin = 
-    // console.log(this.apaAdmin)
-=======
   // ionViewDidLoad() {
   //   //console.log('ionViewDidLoad JadwalPage');
   //   console.log(this.apaAdmin)
@@ -58,26 +42,9 @@ export class JadwalPage {
     //console.log(this.x)
   }
 
-  cekAdmin(){
-    //cek admin atau tidak
-    var uId = firebase.auth().currentUser.uid
-    //var z = 0;
-    firebase.database().ref("userTable/"+ uId).once('value').then(function(snapshot) {
-      var isAdmin = snapshot.val().admin;
-      //this.setStatus(snapshot.val().admin);
-      console.log(isAdmin)
-      // if(isAdmin==true){
-      //   this.x = true;
-      // }
-      return isAdmin
-    });
->>>>>>> a5f25e00c7e6db43671c96c6a236c1309836d680
+  ionViewDidEnter(){
+    console.log(this.user)
   }
-
-  // setStatus(admin:boolean){
-  //   this.apaAdmin = admin;
-  //   console.log(admin);
-  // }
 
   ambilData(){
     var a = firebase.database().ref("userTable/naufal").once('value').then(function(snapshot) {
@@ -98,13 +65,9 @@ export class JadwalPage {
     //cek admin atau tidak
     var uId = firebase.auth().currentUser.uid
     var userTable = firebase.database().ref("userTable/").child(uId)
-    return userTable.on('value', data =>{
+    userTable.once('value').then(data =>{
         this.user = data.val()
-        // console.log(this.user)
+        console.log(this.user)
     })
-    // console.log(this.user)
-    // console.log(this.isAdmin)
-    // console.log(hasil)
-    // this.isAdmin
-}
+  }
 }

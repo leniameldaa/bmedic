@@ -3,8 +3,7 @@ import { User } from "../data/user.interface";
 
 export class AuthService{
 
-    user: User
-
+    user
     signin(email: string, password:string){
         return firebase.auth().signInWithEmailAndPassword(email,password);
     }
@@ -21,13 +20,19 @@ export class AuthService{
         return firebase.auth().currentUser
     }
 
+    isiAdmin(){
+        this.user = "apa"
+        return this.user
+    }
+
     cekAdmin(){
         //cek admin atau tidak
         var uId = firebase.auth().currentUser.uid
         var userTable = firebase.database().ref("userTable/").child(uId)
-        return userTable.on('value', data =>{
+        userTable.on('value', data =>{
             this.user = data.val()
             // console.log(this.user)
+            return this.isiAdmin()
         })
     }
 }
