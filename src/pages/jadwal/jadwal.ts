@@ -37,7 +37,6 @@ export class JadwalPage {
      
   }
 
-<<<<<<< HEAD
   ionViewDidLoad(){
     this.cekAdmin()
   }
@@ -46,32 +45,6 @@ export class JadwalPage {
     // console.log(this.cekAdmin())
     //this.cekAdmin()// this.apaAdmin = 
     // console.log(this.apaAdmin)
-=======
-  // ionViewDidLoad() {
-  //   //console.log('ionViewDidLoad JadwalPage');
-  //   console.log(this.apaAdmin)
-  // }
-
-  ionViewCanEnter() {
-    var x = this.cekAdmin()
-    //this.apaAdmin = this.cekAdmin()
-    //console.log(this.x)
-  }
-
-  cekAdmin(){
-    //cek admin atau tidak
-    var uId = firebase.auth().currentUser.uid
-    //var z = 0;
-    firebase.database().ref("userTable/"+ uId).once('value').then(function(snapshot) {
-      var isAdmin = snapshot.val().admin;
-      //this.setStatus(snapshot.val().admin);
-      console.log(isAdmin)
-      // if(isAdmin==true){
-      //   this.x = true;
-      // }
-      return isAdmin
-    });
->>>>>>> a5f25e00c7e6db43671c96c6a236c1309836d680
   }
 
   // setStatus(admin:boolean){
