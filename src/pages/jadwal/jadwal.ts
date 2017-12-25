@@ -22,14 +22,8 @@ import 'rxjs';
 })
 export class JadwalPage {
 
-<<<<<<< HEAD
   user = {}
   
-=======
-  private apaAdmin : any
-  //x = false;
-
->>>>>>> a5f25e00c7e6db43671c96c6a236c1309836d680
   constructor(public navCtrl: NavController,
    public navParams: NavParams,
    public http: Http,
