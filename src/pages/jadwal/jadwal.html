@@ -12,6 +12,11 @@
           <ion-icon name="menu"></ion-icon>
         </button>
     </ion-buttons>
+    <ion-buttons *ngIf="user.admin==true" end>
+      <button ion-button>
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
     <ion-title>Jadwal</ion-title>
   </ion-navbar>
 
@@ -21,21 +26,13 @@
 <ion-content padding>
   <ion-list>
     <ion-item text-center color='secondary'>
-      Jadwal Piket: Sabtu 08.00-11.00
+      {{user.jadwal}}
     </ion-item>
   </ion-list>
 
-  <ion-list>
+  <ion-list *ng-for="">
     <ion-item text-center color='danger'>
-      Jaga Mas UMN : Jumat 17.00-23.00
+      
     </ion-item>
   </ion-list>
-
-  <ion-list>
-    <ion-item text-center color='danger'>
-      {{user.admin}}//Jaga Mas UMN : Jumat 17.00-23.00
-    </ion-item>
-  </ion-list>
-
-  <button ion-button color="secondary" (click)='cekAdmin()'>Ambil data</button>
 </ion-content>

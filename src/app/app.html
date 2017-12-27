@@ -14,12 +14,8 @@
                 <ion-icon name="log-out" item-left></ion-icon>
                 Logout
             </button>
-            <button *ngIf="admin.admin==true" ion-item (click)="logout()">
-                <ion-icon name="log-out" item-left></ion-icon>
-                Logout
-            </button>
         </ion-list>
     </ion-content>
 </ion-menu>
 
-<ion-nav [root]="tabsPage" #sideSignContent></ion-nav>
+<ion-nav [root]="loginPage" #sideSignContent></ion-nav>

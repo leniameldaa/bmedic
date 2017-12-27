@@ -10,6 +10,8 @@ import { TabsPage } from "../pages/tabs/tabs";
 import firebase from 'firebase';
 import { AuthService } from '../services/authService';
 
+import { User } from "../data/user.interface";
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -21,7 +23,7 @@ export class MyApp {
   // homePage= HomePage;
 
   private flag = false;
-  admin = {}
+  user = {}
 
   @ViewChild('sideSignContent') nav : NavController;
 
@@ -37,12 +39,12 @@ export class MyApp {
       databaseURL: "https://bmedic-app.firebaseio.com"      
     });
 
+    this.authService.logout()
+
     firebase.auth().onAuthStateChanged(user=>{
       if(user){
         this.flag = true;
-        this.admin = this.authService.cekAdmin()
-        console.log(this.admin)
-        // console.log(this.authService.isAdmin)
+        //this.user = this.authService.cekAdmin()
         this.nav.setRoot(this.tabsPage);
         // this.rootPage="HomePage";
       }else{
@@ -60,6 +62,7 @@ export class MyApp {
   }
 
   onLoad(page: any) {
+    // this.authService.cekAdmin()
     this.nav.setRoot(page);
     this.menuCtrl.close();
   }

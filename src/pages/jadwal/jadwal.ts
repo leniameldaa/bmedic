@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Http,Response } from '@angular/http';
 
 import { User } from '../../data/user.interface';
 
@@ -26,13 +25,12 @@ export class JadwalPage {
   
   constructor(public navCtrl: NavController,
    public navParams: NavParams,
-   public http: Http,
    private authService: AuthService) {
-     
+    
   }
 
-  ionViewDidLoad(){
-    this.cekAdmin()
+  ionViewWillEnter() {
+    this.getUserData()
   }
 
   ionViewDidEnter() {
@@ -40,12 +38,7 @@ export class JadwalPage {
     //this.cekAdmin()// this.apaAdmin = 
     // console.log(this.apaAdmin)
   }
-
-  // setStatus(admin:boolean){
-  //   this.apaAdmin = admin;
-  //   console.log(admin);
-  // }
-
+  
   ambilData(){
     var a = firebase.database().ref("userTable/naufal").once('value').then(function(snapshot) {
       var email = snapshot.val().email;
@@ -61,17 +54,12 @@ export class JadwalPage {
     })
   }
 
-  cekAdmin(){
+  getUserData(){
     //cek admin atau tidak
-    var uId = firebase.auth().currentUser.uid
+    var uId = this.authService.getActiveUser().uid
     var userTable = firebase.database().ref("userTable/").child(uId)
     return userTable.on('value', data =>{
         this.user = data.val()
-        // console.log(this.user)
     })
-    // console.log(this.user)
-    // console.log(this.isAdmin)
-    // console.log(hasil)
-    // this.isAdmin
-}
+  }
 }

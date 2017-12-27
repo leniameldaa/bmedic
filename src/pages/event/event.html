@@ -14,7 +14,21 @@
 
 
 <ion-content padding>
-  <ion-card text-center>
+    <ion-card *ngFor="let event of events" text-center>
+        <ion-card-header color='secondary' text-center>
+          {{event.deskripsi}}
+        </ion-card-header>
+        <ion-card-content>
+          <ion-list>
+            <ion-item> Lokasi: {{event.lokasi}}</ion-item>
+            <ion-item> Kapan: {{event.tanggal}} {{event.waktu}}</ion-item>
+            <ion-item> Jam: {{event.waktu}}</ion-item>
+          </ion-list>
+          <button ion-button color='primary' (click)="detail()">Detail</button>
+          <button ion-button color='primary' >Daftar</button>
+        </ion-card-content>
+      </ion-card>
+  <!-- <ion-card text-center>
     <ion-card-header color='secondary' text-center>
       Mas UMN
     </ion-card-header>
@@ -38,5 +52,5 @@
         </ion-list>
         <button ion-button color='primary'>Daftar</button>
       </ion-card-content>
-    </ion-card>
+    </ion-card> -->
 </ion-content>
