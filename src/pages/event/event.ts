@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DetailEventPage} from "../detail-event/detail-event";
 
 import { AuthService } from '../../services/authService';
-import firebase from "firebase";
+import firebase, { User } from "firebase";
 import { Event } from "../../data/event.interface";
 /**
  * Generated class for the EventPage page.
@@ -25,12 +25,13 @@ export class EventPage {
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     private authService: AuthService) {
-      this.getUserData()
+      // this.getUserData()
       this.getEvent()
    }
 
    ionViewWillEnter() {
-    
+    // this. user = this.authService.user
+    console.log(this.authService.user)
   }
 
   ionViewDidLoad() {
@@ -56,19 +57,33 @@ export class EventPage {
       this.events = []
       data.forEach( event =>{
         this.events.push(event.val())
-        console.log(this.events)
+        // console.log(this.events)
         return false
       })
-      // //var temp: Event = data.val()
-      // var list : any = data.val() 
-      //   var keys = Object.keys(list)
-      //   //console.log(keys)
-      //   for(var i = 0; i< keys.length; i++){
-      //     var k = keys[i]
-      //     // var initials = list[k].initials
-      //     // console.log(list[k])
-      //     //this.events.push(list[k])
-      //   }
     })
+  }
+
+  daftar(data){
+    // var ref = firebase.database().ref("eventTable/" + data.key)
+    //update jumlah pendaftar
+    var tempJumlah = data.jPendaftar+1
+    // update nama pendaftar
+    var tempNama = data.nPendaftar
+    if(tempNama == 0){
+      tempNama = this.authService.user.nama
+    }
+    else{
+      tempNama = data.nPendaftar+ " " + this.authService.user.nama
+    }
+    console.log(tempNama +" "+tempJumlah)
+    firebase.database().ref('eventTable/'+ data.key).update({
+      nPendaftar: tempNama,
+      jPendaftar: tempJumlah
+    })
+    // var updates ={}
+    // updates['/eventTable' + data.key] = tempJumlah
+    // updates['/eventTable' + data.key] = tempNama
+
+    // return firebase.database().ref().update(updates)
   }
 }

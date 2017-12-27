@@ -1,5 +1,5 @@
 export interface User {
-    Admin: string;
+    admin: string;
     email: string;
     jadwal: string;
     nama: string;

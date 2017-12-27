@@ -6,4 +6,6 @@ export interface Event {
     penyelenggara: string
     tanggal: string
     waktu: string
+    key: string
+    nPendaftar : string
 }

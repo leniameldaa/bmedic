@@ -23,6 +23,7 @@ export class MyApp {
   // homePage= HomePage;
 
   private flag = false;
+  private flagAdmin = false;
   user = {}
 
   @ViewChild('sideSignContent') nav : NavController;
@@ -47,6 +48,9 @@ export class MyApp {
         var userTable = firebase.database().ref("userTable/").child(uId)
         return userTable.on('value', data =>{
             this.authService.user = data.val()
+            if(this.authService.user.admin){
+              this.flagAdmin = true
+            }
             this.flag = true;
             this.nav.setRoot(this.tabsPage);
         })
