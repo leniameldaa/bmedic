@@ -30,13 +30,10 @@ export class JadwalPage {
   }
 
   ionViewWillEnter() {
-    this.getUserData()
-  }
-
-  ionViewDidEnter() {
-    // console.log(this.cekAdmin())
-    //this.cekAdmin()// this.apaAdmin = 
-    // console.log(this.apaAdmin)
+    // this.getUserData()
+    // console.log(this.authService.user)
+    this.user = this.authService.user
+    // console.log(this.user)
   }
   
   ambilData(){

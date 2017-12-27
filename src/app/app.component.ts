@@ -43,10 +43,17 @@ export class MyApp {
 
     firebase.auth().onAuthStateChanged(user=>{
       if(user){
-        this.flag = true;
-        //this.user = this.authService.cekAdmin()
-        this.nav.setRoot(this.tabsPage);
-        // this.rootPage="HomePage";
+        var uId = this.authService.getActiveUser().uid
+        var userTable = firebase.database().ref("userTable/").child(uId)
+        return userTable.on('value', data =>{
+            this.authService.user = data.val()
+            this.flag = true;
+            this.nav.setRoot(this.tabsPage);
+        })
+        // this.flag = true;
+        // //this.user = this.authService.cekAdmin()
+        // this.nav.setRoot(this.tabsPage);
+        // // this.rootPage="HomePage";
       }else{
         this.flag = false;
         this.nav.setRoot(this.loginPage);
