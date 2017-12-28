@@ -3,4 +3,6 @@ export interface User {
     email: string;
     jadwal: string;
     nama: string;
+    gender :string;
+    prodi :string;
 }
