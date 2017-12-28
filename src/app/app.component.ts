@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { TabsPage } from "../pages/tabs/tabs";
 
+// import { TambahjadwalPage } from '../pages/tambahjadwal/tambahjadwal';
 import firebase from 'firebase';
 import { AuthService } from '../services/authService';
 
@@ -45,6 +46,7 @@ export class MyApp {
     firebase.auth().onAuthStateChanged(user=>{
       if(user){
         var uId = this.authService.getActiveUser().uid
+        console.log(uId);
         var userTable = firebase.database().ref("userTable/").child(uId)
         return userTable.on('value', data =>{
             this.authService.user = data.val()

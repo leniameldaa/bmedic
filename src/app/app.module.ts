@@ -14,10 +14,11 @@ import { JadwalPage } from '../pages/jadwal/jadwal';
 import { EventPage } from '../pages/event/event';
 import { NotulenPage } from "../pages/notulen/notulen";
 import { DetailEventPage } from "../pages/detail-event/detail-event";
-
+import { TambahjadwalPage } from '../pages/tambahjadwal/tambahjadwal';
 //Service
 import { AuthService } from '../services/authService';
 import { HttpModule } from '@angular/http';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { HttpModule } from '@angular/http';
     JadwalPage,
     EventPage,
     NotulenPage,
-    DetailEventPage
+    DetailEventPage,
+    TambahjadwalPage
   ],
   imports: [
     BrowserModule,
@@ -49,7 +51,8 @@ import { HttpModule } from '@angular/http';
     JadwalPage,
     EventPage,
     NotulenPage,
-    DetailEventPage
+    DetailEventPage,
+    TambahjadwalPage
   ],
   providers: [
     StatusBar,

@@ -14,6 +14,7 @@
 
 
 <ion-content padding>
+    <button *ngIf="user.admin" ion-button block (click)="addJadwal()">Tambah Jadwal Rapat</button>
     <ion-card text-center color='danger'>
         <ion-card-header text-center>
           Rapat Rutin

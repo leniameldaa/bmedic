@@ -12,11 +12,11 @@
           <ion-icon name="menu"></ion-icon>
         </button>
     </ion-buttons>
-    <ion-buttons *ngIf="user.admin" end>
+    <!-- <ion-buttons *ngIf="user.admin" end>
       <button ion-button>
         <ion-icon name="add"></ion-icon>
       </button>
-    </ion-buttons>
+    </ion-buttons> -->
     <ion-title>Jadwal</ion-title>
   </ion-navbar>
 
@@ -29,10 +29,5 @@
       {{user.jadwal}}
     </ion-item>
   </ion-list>
-
-  <ion-list *ng-for="">
-    <ion-item text-center color='danger'>
-      
-    </ion-item>
-  </ion-list>
+  <!-- <button *ngIf="user.admin" ion-button block (click)="addJadwal()">Tambah Jadwal Anggota</button> -->
 </ion-content>

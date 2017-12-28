@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 
 import { User } from '../../data/user.interface';
 
 import { AuthService } from '../../services/authService';
 import firebase from "firebase";
 import 'rxjs';
+import { TambahjadwalPage } from '../tambahjadwal/tambahjadwal';
 
 /**
  * Generated class for the JadwalPage page.
@@ -25,7 +26,8 @@ export class JadwalPage {
   
   constructor(public navCtrl: NavController,
    public navParams: NavParams,
-   private authService: AuthService) {
+   private authService: AuthService,
+   private modalCtrl: ModalController) {
     
   }
 
@@ -35,6 +37,12 @@ export class JadwalPage {
     this.user = this.authService.user
     // console.log(this.user)
   }
+
+  // addJadwal(){
+  //   // let modal = this.modalCtrl.create(TambahjadwalPage);
+  //   // modal.present();
+  //   this.navCtrl.push(TambahjadwalPage);
+  // }
   
   ambilData(){
     var a = firebase.database().ref("userTable/naufal").once('value').then(function(snapshot) {
