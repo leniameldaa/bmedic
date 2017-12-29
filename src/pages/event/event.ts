@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DetailEventPage} from "../detail-event/detail-event";
+import { TambahjadwalEvent } from "../tambahevent/tambahevent";
 
 import { AuthService } from '../../services/authService';
 import firebase, { User } from "firebase";
