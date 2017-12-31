@@ -8,6 +8,8 @@ import firebase from "firebase";
 import 'rxjs';
 import { TambahjadwalPage } from '../tambahjadwal/tambahjadwal';
 
+
+
 /**
  * Generated class for the JadwalPage page.
  *
@@ -43,7 +45,8 @@ export class JadwalPage {
   //   // modal.present();
   //   this.navCtrl.push(TambahjadwalPage);
   // }
-  
+
+ 
   ambilData(){
     var a = firebase.database().ref("userTable/naufal").once('value').then(function(snapshot) {
       var email = snapshot.val().email;

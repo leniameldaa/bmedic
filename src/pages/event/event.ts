@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage,MenuController, NavController, NavParams,AlertController  } from 'ionic-angular';
 import { DetailEventPage} from "../detail-event/detail-event";
-import { TambahjadwalEvent } from "../tambahevent/tambahevent";
+import { TambaheventPage} from '../tambahevent/tambahevent';
 
 import { AuthService } from '../../services/authService';
 import firebase, { User } from "firebase";
@@ -19,12 +19,15 @@ import { Event } from "../../data/event.interface";
   templateUrl: 'event.html',
 })
 export class EventPage {
-
+  tambaheventPage = TambaheventPage;
   user = {}
   events : Array<Event> = []
+  @ViewChild('sideSignContent') nav : NavController;
 
   constructor(public navCtrl: NavController,
+    private alertCtrl: AlertController,
     public navParams: NavParams,
+    private menuCtrl: MenuController,
     private authService: AuthService) {
       // this.getUserData()
       this.getEvent()
@@ -42,6 +45,11 @@ export class EventPage {
   detail(){
     this.navCtrl.push(DetailEventPage);
   }
+  tambah(event, item) {
+    this.navCtrl.push(TambaheventPage, {
+      item: item
+    });
+} //ini masih error
 
   getUserData(){
     //cek admin atau tidak

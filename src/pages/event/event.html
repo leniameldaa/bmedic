@@ -9,7 +9,7 @@
   <ion-navbar>
     <ion-title>Jasa Medic</ion-title>
     <ion-buttons *ngIf="this.authService.user.admin" end>
-      <button ion-button>
+      <button ion-button (click)="tambah()">
         <ion-icon name="add"></ion-icon>
       </button>
     </ion-buttons>
