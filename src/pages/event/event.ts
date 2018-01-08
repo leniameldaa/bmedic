@@ -34,8 +34,8 @@ export class EventPage {
    }
 
    ionViewWillEnter() {
-    // this. user = this.authService.user
-    console.log(this.authService.user)
+    //this. user = this.authService.user
+    //console.log(this.authService.user)
   }
 
   ionViewDidLoad() {
