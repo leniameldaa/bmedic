@@ -45,11 +45,10 @@ export class EventPage {
   detail(){
     this.navCtrl.push(DetailEventPage);
   }
-  tambah(event, item) {
-    this.navCtrl.push(TambaheventPage, {
-      item: item
-    });
-} //ini masih error
+  
+  tambah() {
+    this.navCtrl.push(TambaheventPage)
+  } 
 
   getUserData(){
     //cek admin atau tidak
