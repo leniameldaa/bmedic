@@ -29,9 +29,11 @@
             <ion-item> Kapan: {{event.tanggal}} {{event.waktu}}</ion-item>
             <ion-item> Jam: {{event.waktu}}</ion-item>
           </ion-list>
-          <button *ngIf="this.authService.user.admin!=true" ion-button color='primary' (click)="detail()">Detail</button>
-          <button *ngIf="this.authService.user.admin!=true"ion-button color='primary' (click)="daftar(event)" >Daftar</button>
-          <button *ngIf="this.authService.user.admin==true" ion-button color='primary' (click)="daftar(event)" >Liat pendaftar</button>
+          <button  ion-button color='primary' (click)="detail(event)">Detail</button>
+          <button ion-button color='primary' (click)="daftar(event)" >Daftar</button>
+          <!--<button *ngIf="this.authService.user.admin==true" ion-button color='primary' (click)="daftar(event)" >Liat pendaftar</button>
+          *ngIf="this.authService.user.admin!=true"
+        *ngIf="this.authService.user.admin!=true"-->
         </ion-card-content>
       </ion-card>
   <!-- <ion-card text-center>

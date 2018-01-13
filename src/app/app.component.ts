@@ -46,7 +46,7 @@ export class MyApp {
     firebase.auth().onAuthStateChanged(user=>{
       if(user){
         var uId = this.authService.getActiveUser().uid
-        console.log(uId);
+        //console.log(uId);
         var userTable = firebase.database().ref("userTable/").child(uId)
         return userTable.on('value', data =>{
             this.authService.user = data.val()
