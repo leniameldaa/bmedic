@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AlertController, IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { AlertController, IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
 import { HomePage } from '../home/home';
 import { AuthService } from '../../services/authService';
@@ -27,11 +27,12 @@ export class LoginPage {
     public navCtrl: NavController, 
     public navParams: NavParams,
     public loadingCtrl: LoadingController,
+    private toastCtrl: ToastController
     ) {
   }
 
-  y = true;
-  error = '';
+  //y = true;
+  //error = '';
 
   ionViewDidLoad() {
     //console.log('ionViewDidLoad LoginPage');
@@ -58,8 +59,15 @@ export class LoginPage {
     });
 
     loading.onDidDismiss((err:string) => {
-      this.y = false;
-      this.error = err;
+      //this.y = false;
+      //this.error = err;
+      let toast = this.toastCtrl.create({
+        message: err,
+        duration: 3000,
+        position: 'top',
+        cssClass: "login.scss"
+      });
+      toast.present();
     });
   }
 }
