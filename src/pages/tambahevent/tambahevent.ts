@@ -48,7 +48,7 @@ export class TambaheventPage {
 
     firebase.database().ref('eventTable/'+ form.value.nama).set({
       deskripsi: form.value.deskripsi,
-      jdPendaftar: "0",
+      jPendaftar: 0,
       key: form.value.nama,
       lokasi: form.value.tempat,
       maks: form.value.maks,
@@ -58,12 +58,12 @@ export class TambaheventPage {
       waktu: form.value.wkt + "-"+ form.value.sls
     })
 
-    this.presentToast()
+    this.presentToast("Event berhasil ditambahkan")
   }
 
-  presentToast() {
+  presentToast(message:string) {
     let toast = this.toastCtrl.create({
-      message: 'Event berhasil ditambahkan',
+      message: message,
       duration: 2000,
       position: 'top'
     });

@@ -1,8 +1,8 @@
 export interface Event {
     deskripsi: string
-    jdPendaftar: string
+    jdPendaftar: number
     lokasi: string
-    maks: string
+    maks: number
     penyelenggara: string
     tanggal: string
     waktu: string

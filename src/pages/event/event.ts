@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage,MenuController, NavController, NavParams,AlertController  } from 'ionic-angular';
+import { IonicPage,MenuController, NavController, NavParams,AlertController, ToastController  } from 'ionic-angular';
 import { DetailEventPage} from "../detail-event/detail-event";
 import { TambaheventPage} from '../tambahevent/tambahevent';
 
@@ -28,7 +28,8 @@ export class EventPage {
     private alertCtrl: AlertController,
     public navParams: NavParams,
     private menuCtrl: MenuController,
-    private authService: AuthService) {
+    private authService: AuthService,
+    private toastCtrl: ToastController) {
       // this.getUserData()
       this.getEvent()
    }
@@ -42,8 +43,8 @@ export class EventPage {
     console.log('ionViewDidLoad EventPage');
   }
 
-  detail(){
-    this.navCtrl.push(DetailEventPage);
+  detail(data){
+    this.navCtrl.push(DetailEventPage, {kiriman: data });
   }
   
   tambah() {
@@ -74,24 +75,45 @@ export class EventPage {
   daftar(data){
     // var ref = firebase.database().ref("eventTable/" + data.key)
     //update jumlah pendaftar
-    var tempJumlah = data.jPendaftar+1
-    // update nama pendaftar
-    var tempNama = data.nPendaftar
-    if(tempNama == 0){
-      tempNama = this.authService.user.nama
+    console.log(data.jPendaftar)
+    if(data.jPendaftar == data.maks){
+      return this.presentToast("Event ini sudah memiliki cukup tenaga medis")
     }
     else{
-      tempNama = data.nPendaftar+ " " + this.authService.user.nama
+      var tempJumlah:number = data.jPendaftar + 1
+    }
+    // update nama pendaftar
+    var tempNama:string = data.nPendaftar
+    if(tempNama.includes(this.authService.user.nama)){
+      return this.presentToast("Anda sudah terdaftar di event ini")
+    }
+    else{
+      if(tempNama == '0'){
+        tempNama = this.authService.user.nama
+      }
+      else{
+        tempNama = data.nPendaftar+ " " + this.authService.user.nama
+      }
     }
     console.log(tempNama +" "+tempJumlah)
     firebase.database().ref('eventTable/'+ data.key).update({
       nPendaftar: tempNama,
       jPendaftar: tempJumlah
     })
+    return this.presentToast("Anda berhasil mendaftar di event ini")
     // var updates ={}
     // updates['/eventTable' + data.key] = tempJumlah
     // updates['/eventTable' + data.key] = tempNama
 
     // return firebase.database().ref().update(updates)
+  }
+
+  presentToast(message:string) {
+    let toast = this.toastCtrl.create({
+      message: message,
+      duration: 2000,
+      position: 'top'
+    });
+    toast.present();
   }
 }
