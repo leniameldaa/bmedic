@@ -81,6 +81,8 @@ export class MyApp {
   }
 
   logout(){
+    this.flag = false;
+    this.flagAdmin = false;
     this.authService.logout();
   }
 }

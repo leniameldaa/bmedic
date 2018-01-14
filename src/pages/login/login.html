@@ -23,13 +23,22 @@
     <form #f="ngForm" (ngSubmit)="login(f)" class="coba" padding-horizontal>
       <ion-list>
         <ion-item>
+            <ion-label color="medic" floating>Email</ion-label>
+            <ion-input type="email" name="email" required clearInput ngModel></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label color="medic" floating>Password</ion-label>
+            <ion-input type="password" name="password" required clearInput ngModel></ion-input>
+        </ion-item>
+        <!-- <ion-item>
           <ion-label fixed>Email</ion-label>
           <ion-input type="email" name="email" required placeholder="Email Address Here" clearInput ngModel></ion-input>
         </ion-item>
         <ion-item>
           <ion-label fixed>Password</ion-label>
           <ion-input type="password" name="password" required placeholder="Password Here" clearInput ngModel></ion-input>
-        </ion-item>
+        </ion-item> -->
+       
         <!-- <p *ngIf="y==false" style="color:red; float:right">{{error}}</p> -->
       </ion-list>
       <button ion-button type="submit" color="secondary" block [disabled]="!f.valid">Login</button>

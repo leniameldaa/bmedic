@@ -22,4 +22,6 @@ export class TabsPage {
   jadwalPage = JadwalPage;
   rapatPage = RapatPage;
   eventPage = EventPage;
+  color: string = "medic";
+
 }
