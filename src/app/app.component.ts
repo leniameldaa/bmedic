@@ -13,7 +13,7 @@ import { AuthService } from '../services/authService';
 
 import { User } from "../data/user.interface";
 import { AdduserPage } from '../pages/adduser/adduser';
-import { TambahmemberPage } from '../pages/tambahMember/tambahmember';
+import { TambahMemberPage } from '../pages/tambah-member/tambah-member';
 
 @Component({
   templateUrl: 'app.html'
@@ -52,26 +52,28 @@ export class MyApp {
         //console.log(uId);
         var userTable = firebase.database().ref("userTable/").child(uId)
         userTable.on('value', data =>{
-          if (data.exists()){
-            this.authService.user = data.val();
-            if(this.authService.user.admin){
-              this.flagAdmin = true;
+            if(data.val() != null){
+              this.authService.user = data.val()
+              //console.log("masuk situ")
+              if(this.authService.user.admin){
+                this.flagAdmin = true;
+              }
+              this.flag = true;
+              this.nav.setRoot(this.tabsPage);
             }
-            this.flag = true;
-            this.nav.setRoot(this.tabsPage);
-          }
-          else{
-            this.nav.push(TambahmemberPage);
-          }
+            else{
+              //console.log("masuk sini")
+              this.nav.push(TambahMemberPage);
+            }
       })
-        return userTable.on('value', data =>{
-            this.authService.user = data.val();
-            if(this.authService.user.admin){
-              this.flagAdmin = true;
-            }
-            this.flag = true;
-            this.nav.setRoot(this.tabsPage);
-        })
+        // return userTable.on('value', data =>{
+        //     this.authService.user = data.val();
+        //     if(this.authService.user.admin){
+        //       this.flagAdmin = true;
+        //     }
+        //     this.flag = true;
+        //     this.nav.setRoot(this.tabsPage);
+        // })
         // this.flag = true;
         // //this.user = this.authService.cekAdmin()
         // this.nav.setRoot(this.tabsPage);
