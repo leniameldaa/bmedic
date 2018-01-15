@@ -13,6 +13,7 @@ import { AuthService } from '../services/authService';
 
 import { User } from "../data/user.interface";
 import { AdduserPage } from '../pages/adduser/adduser';
+import { TambahmemberPage } from '../pages/tambahMember/tambahmember';
 
 @Component({
   templateUrl: 'app.html'
@@ -50,10 +51,23 @@ export class MyApp {
         var uId = this.authService.getActiveUser().uid
         //console.log(uId);
         var userTable = firebase.database().ref("userTable/").child(uId)
-        return userTable.on('value', data =>{
-            this.authService.user = data.val()
+        userTable.on('value', data =>{
+          if (data.exists()){
+            this.authService.user = data.val();
             if(this.authService.user.admin){
-              this.flagAdmin = true
+              this.flagAdmin = true;
+            }
+            this.flag = true;
+            this.nav.setRoot(this.tabsPage);
+          }
+          else{
+            this.nav.push(TambahmemberPage);
+          }
+      })
+        return userTable.on('value', data =>{
+            this.authService.user = data.val();
+            if(this.authService.user.admin){
+              this.flagAdmin = true;
             }
             this.flag = true;
             this.nav.setRoot(this.tabsPage);

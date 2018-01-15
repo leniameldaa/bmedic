@@ -3,6 +3,7 @@ import { AlertController, IonicPage, NavController, NavParams, LoadingController
 import { NgForm } from '@angular/forms';
 import { HomePage } from '../home/home';
 import { AuthService } from '../../services/authService';
+
 //import { AngularFireDatabase } from 'angularfire2/database';
 
 /**
@@ -29,6 +30,7 @@ export class LoginPage {
     public loadingCtrl: LoadingController,
     private toastCtrl: ToastController
     ) {
+      
   }
 
   //y = true;
