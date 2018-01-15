@@ -30,6 +30,7 @@ export class EventPage {
     private menuCtrl: MenuController,
     private authService: AuthService,
     private toastCtrl: ToastController) {
+      // console.log(this.authService.user)
       // this.getUserData()
       this.getEvent()
    }

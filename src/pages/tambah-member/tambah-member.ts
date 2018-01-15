@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the TambahmemberPage page.
+ * Generated class for the TambahMemberPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,16 +10,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-tambahmember',
-  templateUrl: 'tambahmember.html',
+  selector: 'page-tambah-member',
+  templateUrl: 'tambah-member.html',
 })
-export class TambahmemberPage {
+export class TambahMemberPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad TambahmemberPage');
+    console.log('ionViewDidLoad TambahMemberPage');
   }
 
 }

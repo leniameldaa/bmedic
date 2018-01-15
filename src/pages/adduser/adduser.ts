@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../../services/authService';
-import { TambahmemberPage } from '../tambahMember/tambahmember';
+import { TambahMemberPage } from '../tambah-member/tambah-member';
 
 import firebase from 'firebase';
 /**

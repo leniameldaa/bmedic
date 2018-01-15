@@ -16,7 +16,9 @@ import { NotulenPage } from "../pages/notulen/notulen";
 import { DetailEventPage } from "../pages/detail-event/detail-event";
 import { TambahjadwalPage } from '../pages/tambahjadwal/tambahjadwal';
 import { TambaheventPage } from '../pages/tambahevent/tambahevent';
+import { TambahMemberPage } from '../pages/tambah-member/tambah-member';
 import { AdduserPage } from '../pages/adduser/adduser';
+
 //Service
 import { AuthService } from '../services/authService';
 import { HttpModule } from '@angular/http';
@@ -35,7 +37,8 @@ import { HttpModule } from '@angular/http';
     DetailEventPage,
     TambahjadwalPage,
     TambaheventPage,
-    AdduserPage
+    AdduserPage,
+    TambahMemberPage
   ],
   imports: [
     BrowserModule,
@@ -58,7 +61,8 @@ import { HttpModule } from '@angular/http';
     DetailEventPage,
     TambahjadwalPage,
     TambaheventPage,
-    AdduserPage
+    AdduserPage,
+    TambahMemberPage
   ],
   providers: [
     StatusBar,
