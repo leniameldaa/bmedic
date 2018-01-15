@@ -14,42 +14,19 @@
 
 
 <ion-content padding>
-  <form #f="ngForm" (ngSubmit)="submit(f)">
+  <img src="../assets/imgs/add.png" alt="logo_medic" class="centercontent2">
+  <form #f="ngForm" (ngSubmit)="register(f)" class="centercontent" padding-horizontal>
+    <ion-icon name="lg-person-add"></ion-icon>
     <ion-list>
       <ion-item>
-        <ion-label fixed>Nama Event</ion-label>
-        <ion-input type="text" placeholder="Nama" name="nama" clearInput ngModel required></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label fixed>Deskripsi Event</ion-label>
-        <ion-input type="text" placeholder="Deskripsi" name="deskripsi" clearInput ngModel></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label fixed>Penyelenggara Event</ion-label>
-        <ion-input type="text" placeholder="Penyelenggara" name="penyelenggara" clearInput ngModel required></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label fixed>Tanggal</ion-label>
-        <ion-datetime displayFormat="MMM DD, YYYY" name="tgl" clearInput ngModel required></ion-datetime>
-      </ion-item>
-      <ion-item>
-        <ion-label fixed>Waktu Mulai</ion-label>
-        <ion-datetime displayFormat="HH:mm" name="wkt" clearInput ngModel required></ion-datetime>
-        </ion-item>
-      <ion-item>
-        <ion-label fixed>Waktu Selesai</ion-label>
-        <ion-datetime displayFormat="HH:mm" name="sls" clearInput ngModel required></ion-datetime>
-      </ion-item>
-      <ion-item>
-        <ion-label fixed>Tempat</ion-label>
-        <ion-textarea placeholder="Tempat" name="tempat" clearInput ngModel required></ion-textarea>
-      </ion-item>
-      <ion-item>
-          <ion-label fixed>Maksimal Pendaftar</ion-label>
-          <ion-input type="number" placeholder="Maks" name="maks" max="10" clearInput ngModel required></ion-input>
-        </ion-item>
-      <!-- <p *ngIf="y==false" style="color:red; float:right">{{error}}</p> -->
+        <ion-label color="medic" floating>Email</ion-label>
+        <ion-input type="email" name="email" required clearInput ngModel></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label color="medic" floating>Password</ion-label>
+        <ion-input type="password" name="password" required clearInput ngModel></ion-input>
+    </ion-item>
     </ion-list>
-    <button ion-button type="submit" color="secondary" block [disabled]="!f.valid">Tambahkan Event</button>
+    <button ion-button type="submit" color="medic" block [disabled]="!f.valid">Tambahkan Pengguna</button>
   </form>
 </ion-content>
