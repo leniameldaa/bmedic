@@ -14,6 +14,7 @@ import firebase from 'firebase';
 import { AuthService } from '../services/authService';
 
 import { User } from "../data/user.interface";
+import { AdduserPage } from '../pages/adduser/adduser';
 
 //melda tambahin
 import { AngularFireModule } from "angularfire2";
@@ -24,8 +25,13 @@ export class MyApp {
   //rootPage:any = LoginPage;
   loginPage = LoginPage;
   tabsPage = TabsPage;
+<<<<<<< HEAD
   profilPage = ProfilePage;
   tambahUserPage = TambahUserPage;
+=======
+  addUserPage = AdduserPage;
+  
+>>>>>>> 3f0e4f0a922861ef17c528a2f28503b90a050f3c
   // homePage= HomePage;
 
   private flag = false;
@@ -89,15 +95,23 @@ export class MyApp {
   }
 
   logout(){
+    this.flag = false;
+    this.flagAdmin = false;
     this.authService.logout();
   }
 
+<<<<<<< HEAD
   profilUser(){
     this.nav.push(this.profilPage);
   }
 
   tambahuserr(){
     this.nav.push(this.tambahUserPage);
+=======
+  addUser()
+  {
+    this.nav.push(AdduserPage);
+>>>>>>> 3f0e4f0a922861ef17c528a2f28503b90a050f3c
   }
 }
 

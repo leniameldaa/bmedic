@@ -9,7 +9,7 @@
   <ion-navbar>
     <ion-buttons start>
         <button ion-button menuToggle >
-          <ion-icon name="menu"></ion-icon>
+          <ion-icon style="color:#40B745" name="menu"></ion-icon>
         </button>
     </ion-buttons>
     <!-- <ion-buttons *ngIf="user.admin" end>
@@ -17,15 +17,24 @@
         <ion-icon name="add"></ion-icon>
       </button>
     </ion-buttons> -->
-    <ion-title>Jadwal</ion-title>
+    <ion-title>Jadwal<img src="../assets/imgs/logo2.png" alt="logo_medic" width="10%"></ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+   <ion-fab bottom center>
+    <button ion-fab color='medic'><ion-icon name="add"></ion-icon></button>
+    <!-- <ion-fab-list side="top">
+      <button ion-fab><ion-icon name="logo-facebook"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-twitter"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-vimeo"></ion-icon></button>
+      <button ion-fab><ion-icon name="logo-googleplus"></ion-icon></button>
+    </ion-fab-list> -->
+  </ion-fab>
   <ion-list>
-    <ion-item text-center color='secondary'>
+    <ion-item text-center color='medic'>
       {{user.jadwal}}
     </ion-item>
   </ion-list>
