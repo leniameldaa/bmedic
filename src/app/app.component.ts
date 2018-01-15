@@ -6,6 +6,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { TabsPage } from "../pages/tabs/tabs";
+import { ProfilePage } from "../pages/profile/profile";
+import { TambahUserPage } from '../pages/tambah-user/tambah-user';
 
 // import { TambahjadwalPage } from '../pages/tambahjadwal/tambahjadwal';
 import firebase from 'firebase';
@@ -13,6 +15,8 @@ import { AuthService } from '../services/authService';
 
 import { User } from "../data/user.interface";
 
+//melda tambahin
+import { AngularFireModule } from "angularfire2";
 @Component({
   templateUrl: 'app.html'
 })
@@ -20,7 +24,8 @@ export class MyApp {
   //rootPage:any = LoginPage;
   loginPage = LoginPage;
   tabsPage = TabsPage;
-  
+  profilPage = ProfilePage;
+  tambahUserPage = TambahUserPage;
   // homePage= HomePage;
 
   private flag = false;
@@ -37,8 +42,11 @@ export class MyApp {
       private authService: AuthService) {
     firebase.initializeApp({
       apiKey: "AIzaSyBh-3YvuV6tkKoBKeueUl8Tj4ZZ8I0QwYM",
-      authDomain: "bmedic-app.firebaseapp.com",
-      databaseURL: "https://bmedic-app.firebaseio.com"      
+    authDomain: "bmedic-app.firebaseapp.com",
+    databaseURL: "https://bmedic-app.firebaseio.com",
+    projectId: "bmedic-app",
+    storageBucket: "bmedic-app.appspot.com",
+    messagingSenderId: "226431192353"      
     });
 
     this.authService.logout()
@@ -82,6 +90,14 @@ export class MyApp {
 
   logout(){
     this.authService.logout();
+  }
+
+  profilUser(){
+    this.nav.push(this.profilPage);
+  }
+
+  tambahuserr(){
+    this.nav.push(this.tambahUserPage);
   }
 }
 

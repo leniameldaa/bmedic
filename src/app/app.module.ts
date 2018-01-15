@@ -1,8 +1,8 @@
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { BrowserModule } from '@angular/platform-browser';
-import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
 
 // Page
 import { MyApp } from './app.component';
@@ -16,10 +16,12 @@ import { NotulenPage } from "../pages/notulen/notulen";
 import { DetailEventPage } from "../pages/detail-event/detail-event";
 import { TambahjadwalPage } from '../pages/tambahjadwal/tambahjadwal';
 import { TambaheventPage } from '../pages/tambahevent/tambahevent';
+import { ProfilePage } from '../pages/profile/profile';
+import { TambahUserPage } from '../pages/tambah-user/tambah-user';
 //Service
 import { AuthService } from '../services/authService';
 import { HttpModule } from '@angular/http';
-
+import { Camera} from '@ionic-native/camera';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { HttpModule } from '@angular/http';
     NotulenPage,
     DetailEventPage,
     TambahjadwalPage,
-    TambaheventPage
+    TambaheventPage,
+    ProfilePage,
+    TambahUserPage
   ],
   imports: [
     BrowserModule,
@@ -55,9 +59,12 @@ import { HttpModule } from '@angular/http';
     NotulenPage,
     DetailEventPage,
     TambahjadwalPage,
-    TambaheventPage
+    TambaheventPage,
+    ProfilePage,
+    TambahUserPage
   ],
   providers: [
+    Camera,
     StatusBar,
     SplashScreen,
     AuthService,
