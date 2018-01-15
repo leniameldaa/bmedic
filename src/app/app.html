@@ -1,7 +1,7 @@
 <ion-menu [content]="sideSignContent">
     <ion-header>
         <ion-toolbar text-center>
-            <h2>Menu</h2>
+            <h2>Menu<img src="../assets/imgs/logo2.png" alt="logo_medic" width="10%"></h2>
         </ion-toolbar>
     </ion-header>
     <ion-content>
@@ -10,13 +10,13 @@
                 <ion-icon name="log-in" item-left></ion-icon>
                 Login
             </button> -->
+            <button *ngIf="flagAdmin==true" ion-item (click)="addUser()" menuClose>
+                <ion-icon name="people" item-left></ion-icon>
+                Add User
+            </button>
             <button *ngIf="flag==true" ion-item (click)="logout()">
                 <ion-icon name="log-out" item-left></ion-icon>
                 Logout
-            </button>
-            <button *ngIf="flagAdmin==true" ion-item (click)="addUser()">
-                <ion-icon name="people" item-left></ion-icon>
-                Tambah Pengguna
             </button>
         </ion-list>
     </ion-content>

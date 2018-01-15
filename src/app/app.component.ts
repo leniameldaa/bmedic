@@ -12,6 +12,7 @@ import firebase from 'firebase';
 import { AuthService } from '../services/authService';
 
 import { User } from "../data/user.interface";
+import { AdduserPage } from '../pages/adduser/adduser';
 
 @Component({
   templateUrl: 'app.html'
@@ -20,6 +21,7 @@ export class MyApp {
   //rootPage:any = LoginPage;
   loginPage = LoginPage;
   tabsPage = TabsPage;
+  addUserPage = AdduserPage;
   
   // homePage= HomePage;
 
@@ -84,6 +86,11 @@ export class MyApp {
     this.flag = false;
     this.flagAdmin = false;
     this.authService.logout();
+  }
+
+  addUser()
+  {
+    this.nav.push(AdduserPage);
   }
 }
 

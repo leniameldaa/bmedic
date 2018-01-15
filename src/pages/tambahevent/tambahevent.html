@@ -47,7 +47,7 @@
               <ion-label fixed>Maksimal Pendaftar</ion-label>
               <ion-input type="number" placeholder="Maks" name="maks" max="10" clearInput ngModel required></ion-input>
             </ion-item>
-          <p *ngIf="y==false" style="color:red; float:right">{{error}}</p>
+          <!-- <p *ngIf="y==false" style="color:red; float:right">{{error}}</p> -->
         </ion-list>
         <button ion-button type="submit" color="secondary" block [disabled]="!f.valid">Tambahkan Event</button>
       </form>
