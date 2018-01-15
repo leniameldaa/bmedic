@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../../services/authService';
 // import { Http,Response } from '@angular/http';
@@ -19,7 +19,7 @@ import firebase from "firebase";
 })
 export class TambahjadwalPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, private authSvc: AuthService) {
+  constructor(public toastCtrl: ToastController, public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, private authSvc: AuthService) {
   }
 
   ionViewDidLoad() {
@@ -35,6 +35,7 @@ export class TambahjadwalPage {
       waktuRapat: this.studentForm.value.wkt,
       tempatRapat: this.studentForm.value.tempat
     });
+    this.presentToast("Rapat berhasil ditambahkan")
     console.log(this.studentForm.value);
     let loading = this.loadingCtrl.create({
       spinner: 'crescent',
@@ -43,7 +44,7 @@ export class TambahjadwalPage {
     loading.present()
 
     this.authSvc.getActiveUser().getToken()
-   
+    
     loading.dismiss()
   }
 
@@ -53,6 +54,7 @@ export class TambahjadwalPage {
     this.initializeForm();
   }
   
+  
   private initializeForm() {
     this.studentForm = new FormGroup({
       nama: new FormControl(null, Validators.required),
@@ -60,6 +62,16 @@ export class TambahjadwalPage {
       wkt: new FormControl(null, Validators.required),
       tempat: new FormControl(null, Validators.required)
     })
+  }
+
+  presentToast(message:string) {
+    let toast = this.toastCtrl.create({
+      message: message,
+      duration: 2000,
+      position: 'top'
+    });
+    toast.present();
+    this.navCtrl.pop()
   }
 
 }

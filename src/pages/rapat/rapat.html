@@ -18,7 +18,7 @@
     <div text-center>
     <button *ngIf="user.admin" ion-button large round icon-only (click)="addJadwal()"><ion-icon name="md-add-circle"></ion-icon></button>
     </div>
-    <ion-card text-center color='danger'>
+    <!-- <ion-card text-center color='danger'>
         <ion-card-header text-center>
           Rapat Rutin
         </ion-card-header>
@@ -29,8 +29,21 @@
           </ion-list>
           <button ion-button color='primary' disabled>Notulen</button>
         </ion-card-content>
-      </ion-card>
-      <ion-card text-center color='secondary'>
+      </ion-card> -->
+      <ion-card *ngFor="let rapat of rapats" text-center color='secondary'>
+          <ion-card-header text-center>
+            {{rapat.namaRapat}}
+          </ion-card-header>
+          <ion-card-content>
+            <ion-list>
+              <ion-item> Lokasi: {{rapat.tempatRapat}}</ion-item>
+              <ion-item> Tanggal: {{rapat.tanggalRapat}}</ion-item>
+              <ion-item> Jam: {{rapat.waktuRapat}}</ion-item>
+            </ion-list>
+            <button ion-button (click)="notulen()">Notulen</button>
+          </ion-card-content>
+        </ion-card>
+      <!-- <ion-card text-center color='secondary'>
           <ion-card-header text-center>
             Rapat Rutin
           </ion-card-header>
@@ -41,5 +54,5 @@
             </ion-list>
             <button ion-button (click)="notulen()">Notulen</button>
           </ion-card-content>
-        </ion-card>
+        </ion-card> -->
 </ion-content>

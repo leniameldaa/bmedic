@@ -4,6 +4,7 @@ import {NotulenPage} from "../notulen/notulen";
 import { AuthService } from '../../services/authService';
 import firebase from "firebase";
 import { TambahjadwalPage } from '../tambahjadwal/tambahjadwal';
+import { Rapat } from "../../data/rapat.interface";
 /**
  * Generated class for the RapatPage page.
  *
@@ -19,8 +20,10 @@ import { TambahjadwalPage } from '../tambahjadwal/tambahjadwal';
 export class RapatPage {
 
   user = {}
+  rapats : Array<Rapat> = []
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private authService: AuthService) {
+    this.getRapat()
   }
 
   ionViewWillEnter() {
@@ -37,6 +40,18 @@ export class RapatPage {
     var userTable = firebase.database().ref("userTable/").child(uId)
     return userTable.on('value', data =>{
         this.user = data.val()
+    })
+  }
+
+  getRapat(){
+    var rapatTable = firebase.database().ref("rapatTable/")
+    return rapatTable.on('value', data=>{
+      this.rapats = []
+      data.forEach ( rapat =>{
+        this.rapats.push(rapat.val())
+        console.log(this.rapats)
+        return false
+      })
     })
   }
 
