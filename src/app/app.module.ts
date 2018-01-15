@@ -1,8 +1,8 @@
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { BrowserModule } from '@angular/platform-browser';
-import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar';
 
 // Page
 import { MyApp } from './app.component';
@@ -16,16 +16,11 @@ import { NotulenPage } from "../pages/notulen/notulen";
 import { DetailEventPage } from "../pages/detail-event/detail-event";
 import { TambahjadwalPage } from '../pages/tambahjadwal/tambahjadwal';
 import { TambaheventPage } from '../pages/tambahevent/tambahevent';
-<<<<<<< HEAD
-import { ProfilePage } from '../pages/profile/profile';
-import { TambahUserPage } from '../pages/tambah-user/tambah-user';
-=======
 import { AdduserPage } from '../pages/adduser/adduser';
->>>>>>> 3f0e4f0a922861ef17c528a2f28503b90a050f3c
 //Service
 import { AuthService } from '../services/authService';
 import { HttpModule } from '@angular/http';
-import { Camera} from '@ionic-native/camera';
+
 
 @NgModule({
   declarations: [
@@ -40,12 +35,7 @@ import { Camera} from '@ionic-native/camera';
     DetailEventPage,
     TambahjadwalPage,
     TambaheventPage,
-<<<<<<< HEAD
-    ProfilePage,
-    TambahUserPage
-=======
     AdduserPage
->>>>>>> 3f0e4f0a922861ef17c528a2f28503b90a050f3c
   ],
   imports: [
     BrowserModule,
@@ -68,15 +58,9 @@ import { Camera} from '@ionic-native/camera';
     DetailEventPage,
     TambahjadwalPage,
     TambaheventPage,
-<<<<<<< HEAD
-    ProfilePage,
-    TambahUserPage
-=======
     AdduserPage
->>>>>>> 3f0e4f0a922861ef17c528a2f28503b90a050f3c
   ],
   providers: [
-    Camera,
     StatusBar,
     SplashScreen,
     AuthService,

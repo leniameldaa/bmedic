@@ -6,8 +6,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { TabsPage } from "../pages/tabs/tabs";
-import { ProfilePage } from "../pages/profile/profile";
-import { TambahUserPage } from '../pages/tambah-user/tambah-user';
 
 // import { TambahjadwalPage } from '../pages/tambahjadwal/tambahjadwal';
 import firebase from 'firebase';
@@ -17,8 +15,6 @@ import { User } from "../data/user.interface";
 import { AdduserPage } from '../pages/adduser/adduser';
 import { TambahmemberPage } from '../pages/tambahMember/tambahmember';
 
-//melda tambahin
-import { AngularFireModule } from "angularfire2";
 @Component({
   templateUrl: 'app.html'
 })
@@ -26,13 +22,8 @@ export class MyApp {
   //rootPage:any = LoginPage;
   loginPage = LoginPage;
   tabsPage = TabsPage;
-<<<<<<< HEAD
-  profilPage = ProfilePage;
-  tambahUserPage = TambahUserPage;
-=======
   addUserPage = AdduserPage;
   
->>>>>>> 3f0e4f0a922861ef17c528a2f28503b90a050f3c
   // homePage= HomePage;
 
   private flag = false;
@@ -49,11 +40,8 @@ export class MyApp {
       private authService: AuthService) {
     firebase.initializeApp({
       apiKey: "AIzaSyBh-3YvuV6tkKoBKeueUl8Tj4ZZ8I0QwYM",
-    authDomain: "bmedic-app.firebaseapp.com",
-    databaseURL: "https://bmedic-app.firebaseio.com",
-    projectId: "bmedic-app",
-    storageBucket: "bmedic-app.appspot.com",
-    messagingSenderId: "226431192353"      
+      authDomain: "bmedic-app.firebaseapp.com",
+      databaseURL: "https://bmedic-app.firebaseio.com"      
     });
 
     this.authService.logout()
@@ -114,18 +102,8 @@ export class MyApp {
     this.authService.logout();
   }
 
-<<<<<<< HEAD
-  profilUser(){
-    this.nav.push(this.profilPage);
-  }
-
-  tambahuserr(){
-    this.nav.push(this.tambahUserPage);
-=======
   addUser()
   {
     this.nav.push(AdduserPage);
->>>>>>> 3f0e4f0a922861ef17c528a2f28503b90a050f3c
   }
 }
-
