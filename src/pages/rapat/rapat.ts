@@ -30,8 +30,8 @@ export class RapatPage {
     this.user = this.authService.user
   }
 
-  notulen(){
-    this.navCtrl.push(NotulenPage);
+  notulen(data){
+    this.navCtrl.push(NotulenPage, {kiriman: data});
   }
 
   getUserData(){
