@@ -3,5 +3,8 @@ export interface Rapat {
     tanggalRapat: string,
     tempatRapat: string,
     waktuRapat: string,
-    notulenRapat: string
+    notulenRapat: string,
+    judulNotulen: string,
+    tglNotulen: string,
+    key: string
 }
