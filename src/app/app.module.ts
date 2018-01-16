@@ -20,6 +20,7 @@ import { TambaheventPage } from '../pages/tambahevent/tambahevent';
 import { TambahjadwalpiketPage } from '../pages/tambahjadwalpiket/tambahjadwalpiket';
 import { TambahMemberPage } from '../pages/tambah-member/tambah-member';
 import { AdduserPage } from '../pages/adduser/adduser';
+import { AlluserPage } from '../pages/alluser/alluser';
 
 //Service
 import { AuthService } from '../services/authService';
@@ -43,7 +44,8 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     AdduserPage,
     TambahMemberPage,
     ProfilePage,
-    TambahjadwalpiketPage
+    TambahjadwalpiketPage,
+    AlluserPage
    // JadwalpiketPage
   ],
   imports: [
@@ -70,7 +72,8 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     AdduserPage,
     TambahMemberPage,
     ProfilePage,
-    TambahjadwalpiketPage
+    TambahjadwalpiketPage,
+    AlluserPage
    // JadwalpiketPage
   ],
   providers: [

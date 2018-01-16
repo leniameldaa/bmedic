@@ -12,6 +12,7 @@ import { TambahjadwalPage } from '../tambahjadwal/tambahjadwal';
 import { Platform } from 'ionic-angular/platform/platform';
 import { TambahjadwalpiketPage} from '../tambahjadwalpiket/tambahjadwalpiket';
 import { LocalNotifications } from '@ionic-native/local-notifications';
+import { AlluserPage } from '../alluser/alluser';
 
 
 
@@ -40,7 +41,7 @@ export class JadwalPage {
    private modalCtrl: ModalController,
    private localNotifications: LocalNotifications,
    private platform: Platform,private toastCtrl: ToastController) {
-    this.getJadwalpiket()
+    // this.getJadwalpiket()
     console.log(this.events)
   }
 
@@ -71,8 +72,8 @@ export class JadwalPage {
   //   this.navCtrl.push(TambahjadwalPage);
   // }
 
-  tambah(data) {
-    this.navCtrl.push(TambahjadwalpiketPage,{kiriman:data});
+  listAturJadwal() {
+    this.navCtrl.push(AlluserPage);
   } 
   
   ambilData(){
@@ -108,7 +109,7 @@ export class JadwalPage {
   //       return false
   //     })
   //   })
-  }
+  // }
 
 
   presentToast(message:string) {
