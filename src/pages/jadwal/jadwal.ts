@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, ModalController , ToastController } from 'ionic-angular';
 
 import { User } from '../../data/user.interface';
 
@@ -9,7 +9,7 @@ import 'rxjs';
 import { TambahjadwalPage } from '../tambahjadwal/tambahjadwal';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { Platform } from 'ionic-angular/platform/platform';
-
+import { TambahjadwalpiketPage} from '../tambahjadwalpiket/tambahjadwalpiket';
 
 
 /**
@@ -27,14 +27,16 @@ import { Platform } from 'ionic-angular/platform/platform';
 export class JadwalPage {
 
   user = {}
+  users : Array<User> = []
+  @ViewChild('sideSignContent') nav : NavController;
   
   constructor(public navCtrl: NavController,
    public navParams: NavParams,
    private authService: AuthService,
    private modalCtrl: ModalController,
    private localNotifications: LocalNotifications,
-   private platform: Platform) {
-    
+   private platform: Platform,private toastCtrl: ToastController) {
+    this.getJadwalpiket()
   }
 
   notif(){
@@ -46,7 +48,9 @@ export class JadwalPage {
      });
     });
   }
-
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad JadwalpiketPage');
+  }
   ionViewWillEnter() {
     // this.getUserData()
     // console.log(this.authService.user)
@@ -60,7 +64,10 @@ export class JadwalPage {
   //   this.navCtrl.push(TambahjadwalPage);
   // }
 
- 
+  tambah(data) {
+    this.navCtrl.push(TambahjadwalpiketPage,{kiriman:data});
+  } 
+  
   ambilData(){
     var a = firebase.database().ref("userTable/naufal").once('value').then(function(snapshot) {
       var email = snapshot.val().email;
@@ -83,5 +90,32 @@ export class JadwalPage {
     return userTable.on('value', data =>{
         this.user = data.val()
     })
+  }
+  getJadwalpiket(){
+    var userTable = firebase.database().ref("userTable/")
+    return userTable.on('value', data =>{
+      this.users = []
+      data.forEach( jadwal =>{
+
+          this.users.push(jadwal.val())
+        
+
+          // console.log(this.events)
+        return false
+        
+        
+        
+      })
+    })
+  }
+
+
+  presentToast(message:string) {
+    let toast = this.toastCtrl.create({
+      message: message,
+      duration: 2000,
+      position: 'top'
+    });
+    toast.present();
   }
 }

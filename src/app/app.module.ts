@@ -11,11 +11,13 @@ import { LoginPage } from '../pages/login/login';
 import { TabsPage } from '../pages/tabs/tabs';
 import { RapatPage } from '../pages/rapat/rapat';
 import { JadwalPage } from '../pages/jadwal/jadwal';
+
 import { EventPage } from '../pages/event/event';
 import { NotulenPage } from "../pages/notulen/notulen";
 import { DetailEventPage } from "../pages/detail-event/detail-event";
 import { TambahjadwalPage } from '../pages/tambahjadwal/tambahjadwal';
 import { TambaheventPage } from '../pages/tambahevent/tambahevent';
+import { TambahjadwalpiketPage } from '../pages/tambahjadwalpiket/tambahjadwalpiket';
 import { TambahMemberPage } from '../pages/tambah-member/tambah-member';
 import { AdduserPage } from '../pages/adduser/adduser';
 
@@ -40,7 +42,9 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     TambaheventPage,
     AdduserPage,
     TambahMemberPage,
-    ProfilePage
+    ProfilePage,
+    TambahjadwalpiketPage
+   // JadwalpiketPage
   ],
   imports: [
     BrowserModule,
@@ -65,7 +69,9 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     TambaheventPage,
     AdduserPage,
     TambahMemberPage,
-    ProfilePage
+    ProfilePage,
+    TambahjadwalpiketPage
+   // JadwalpiketPage
   ],
   providers: [
     StatusBar,

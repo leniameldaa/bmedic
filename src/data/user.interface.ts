@@ -5,4 +5,7 @@ export interface User {
     nama: string;
     gender :string;
     prodi :string;
+    waktuselesai: string
+    waktumulai: string
+    hari: string
 }

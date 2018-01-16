@@ -1,0 +1,45 @@
+<!--
+  Generated template for the TambahjadwalpiketPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Tambahkan Jadwal Piket</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+    <form #f="ngForm" (ngSubmit)="submit(f)">
+
+        <ion-list>
+           
+          <ion-item>
+            <ion-label fixed>Hari</ion-label>
+            <ion-select name="hari" ngModel required>
+              <ion-option value="senin">senin</ion-option>
+              <ion-option value="selasa">selasa</ion-option>
+              <ion-option value="rabu">rabu</ion-option>
+              <ion-option value="kamis">kamis</ion-option>
+              <ion-option value="jumat">jumat</ion-option>
+              <ion-option value="sabtu">sabtu</ion-option>
+              <ion-option value="minggu">minggu</ion-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+          <ion-label fixed>Waktu Mulai</ion-label>
+          <ion-datetime displayFormat="HH:mm" name="waktumulai" clearInput ngModel required></ion-datetime>
+          </ion-item>
+        <ion-item>
+          <ion-label fixed>Waktu Selesai</ion-label>
+          <ion-datetime displayFormat="HH:mm" name="waktuselesai" clearInput ngModel required></ion-datetime>
+        </ion-item>
+          
+          <!-- <p *ngIf="y==false" style="color:red; float:right">{{error}}</p> -->
+        </ion-list>
+        <button ion-button type="submit" color="secondary" block [disabled]="!f.valid">Tambahkan Jadwal</button>
+      </form>
+</ion-content>
