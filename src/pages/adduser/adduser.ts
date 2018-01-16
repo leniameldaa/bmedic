@@ -18,7 +18,7 @@ import firebase from 'firebase';
   templateUrl: 'adduser.html',
 })
 export class AdduserPage {
-
+ 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams, 
@@ -33,14 +33,9 @@ export class AdduserPage {
   // }
 
   register(form: NgForm){
-    var config = {
-      apiKey: "AIzaSyBh-3YvuV6tkKoBKeueUl8Tj4ZZ8I0QwYM",
-      authDomain: "bmedic-app.firebaseapp.com",
-      databaseURL: "https://bmedic-app.firebaseio.com"      
-    }
-    var secondaryApp = firebase.initializeApp(config, "iseng");
-    let x = secondaryApp.auth().createUserWithEmailAndPassword(form.value.email,form.value.password)
-    secondaryApp.auth().signOut()
+    
+    let x = this.authService.secondaryApp.auth().createUserWithEmailAndPassword(form.value.email,form.value.password)
+    this.authService.secondaryApp.auth().signOut()
     this.presentToast("Pengguna berhasil ditambahkan")
     this.navCtrl.pop()
     // let loading = this.loadingCtrl.create({
