@@ -26,7 +26,7 @@ export class TambahjadwalpiketPage {
 
   ionViewDidLoad() {
     this.user=this.navParams.get("kiriman")
-    console.log('ionViewDidLoad TambahjadwalpiketPage');
+    //console.log('ionViewDidLoad TambahjadwalpiketPage');
    console.log(this.user)
   }
 

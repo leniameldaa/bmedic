@@ -6,7 +6,7 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-buttons *ngIf="this.authService.user.admin" start>
+    <ion-buttons start>
         <button ion-button menuToggle >
           <ion-icon style="color:#40B745" name="menu"></ion-icon>
         </button>
@@ -24,7 +24,7 @@
 
 <ion-content padding>
   <!-- <button ion-button (click)="notif()">Notif</button> -->
-   <ion-fab bottom center>
+   <ion-fab bottom center *ngIf="user.admin">
     <button ion-fab color='medic' (click)="listAturJadwal()"><ion-icon name="calendar"></ion-icon><ion-icon name="add"></ion-icon></button>
   </ion-fab>
   <ion-card text-center>

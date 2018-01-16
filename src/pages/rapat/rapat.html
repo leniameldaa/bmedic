@@ -19,10 +19,6 @@
 
 
 <ion-content padding>
-    <!-- <button *ngIf="user.admin" ion-button block (click)="addJadwal()">Tambah Jadwal Rapat</button> -->
-    <!-- <div text-center>
-    <button *ngIf="user.admin" ion-button large round icon-only (click)="addJadwal()"><ion-icon name="md-add-circle"></ion-icon></button>
-    </div> -->
     <ion-fab bottom center *ngIf="user.admin">
         <button ion-fab color='medic' (click)="addJadwal()"><ion-icon name="pulse"></ion-icon><ion-icon name="add"></ion-icon></button>
       </ion-fab>
@@ -44,23 +40,8 @@
                     <ion-label color="medic" fixed>Waktu</ion-label>
                     <ion-input type="text" readonly value="{{rapat.waktuRapat}}"></ion-input>
                   </ion-item>
-              <!-- <ion-item> Lokasi: {{rapat.tempatRapat}}</ion-item>
-              <ion-item> Tanggal: {{rapat.tanggalRapat}}</ion-item>
-              <ion-item> Jam: {{rapat.waktuRapat}}</ion-item> -->
             </ion-list>
             <button ion-button color='medic' (click)="notulen(rapat)" style="float:right">Notulen</button>
           </ion-card-content>
         </ion-card>
-      <!-- <ion-card text-center color='secondary'>
-          <ion-card-header text-center>
-            Rapat Rutin
-          </ion-card-header>
-          <ion-card-content>
-            <ion-list>
-              <ion-item> Lokasi: c1110</ion-item>
-              <ion-item> Kapan: 17-11-2017 18.00</ion-item>
-            </ion-list>
-            <button ion-button (click)="notulen()">Notulen</button>
-          </ion-card-content>
-        </ion-card> -->
 </ion-content>
