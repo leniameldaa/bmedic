@@ -14,54 +14,27 @@
 
 
 <ion-content padding>
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <div><img src="../assets/imgs/user.png" alt="user" style="width:100%"></div>
-      </ion-col>
-      <ion-col>
-        <div>
-          <ion-list>
-          <ion-item>
-            <ion-label stacked>Email</ion-label>
-            <ion-input type="text"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label stacked>Kata Sandi</ion-label>
-            <ion-input type="password"></ion-input>
-          </ion-item>  
-        </ion-list>
-      </div>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <div>
-          <ion-item>
-            <ion-label stacked>Nama</ion-label>
-            <ion-input type="text"></ion-input>
-          </ion-item>
-        </div>
-        <div>
-            <ion-item>
-              <ion-label stacked>Prodi</ion-label>
-              <ion-input type="text"></ion-input>
-            </ion-item>
-          </div>
-          <div>
-              <ion-item>
-                <ion-label stacked>Jenis Kelamin</ion-label>
-                <ion-input type="text"></ion-input>
-              </ion-item>
-            </div>
-            <br>
-            <div> 
-                <button ion-button full color="secondary">
-                  <ion-icon name='md-create'></ion-icon>
-                  Simpan Profil
-                </button>
-              </div>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+    <img src="../assets/imgs/member.png" alt="logo_medic" class="centercontent2">
+    <form #f="ngForm" class="centercontent" padding-horizontal>
+      <ion-list>
+        <ion-item>
+          <ion-label color="medic" floating>Nama</ion-label>
+          <ion-input type="text" name="nama" required clearInput ngModel value="{{user.nama}}"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label color="medic" floating>Prodi</ion-label>
+            <ion-select name="prodi" ngModel required>
+              {{user.prodi}}
+              <!-- <ion-option *ngFor="let item of items" value="{{item.value}}" checked="{{item.checked}}">{{item.text}}</ion-option> -->
+              <ion-option value="IT" selected>Teknik Informatika</ion-option>
+              <ion-option value="Man">Management</ion-option>
+              <ion-option value="Akun">Akutansi</ion-option>
+              <ion-option value="Dkv">DKV</ion-option>
+              <ion-option value="SI">Sistem Informasi</ion-option>
+              <ion-option value="SK">Sistem Komputer</ion-option>
+            </ion-select>
+        </ion-item>
+      </ion-list>
+      <button ion-button type="submit" color="medic" block [disabled]="!f.valid">Tambah</button>
+    </form>
 </ion-content>

@@ -14,6 +14,7 @@ import { AuthService } from '../services/authService';
 import { User } from "../data/user.interface";
 import { AdduserPage } from '../pages/adduser/adduser';
 import { TambahMemberPage } from '../pages/tambah-member/tambah-member';
+import { ProfilePage } from '../pages/profile/profile';
 
 @Component({
   templateUrl: 'app.html'
@@ -108,5 +109,10 @@ export class MyApp {
   addUser()
   {
     this.nav.push(AdduserPage);
+  }
+
+  profilUser()
+  {
+    this.nav.push(ProfilePage);
   }
 }

@@ -30,7 +30,7 @@ export class TambahMemberPage {
       admin: false,
       email: this.navParams.get('email'),
       gender: form.value.jeniskelamin,
-      jadwal: null,
+      jadwal: "",
       nama: form.value.nama,
       prodi: form.value.prodi,
       angkatan: form.value.angkatan

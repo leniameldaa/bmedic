@@ -22,6 +22,7 @@ import { AdduserPage } from '../pages/adduser/adduser';
 //Service
 import { AuthService } from '../services/authService';
 import { HttpModule } from '@angular/http';
+import { ProfilePage } from '../pages/profile/profile';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { HttpModule } from '@angular/http';
     TambahjadwalPage,
     TambaheventPage,
     AdduserPage,
-    TambahMemberPage
+    TambahMemberPage,
+    ProfilePage
   ],
   imports: [
     BrowserModule,
@@ -62,7 +64,8 @@ import { HttpModule } from '@angular/http';
     TambahjadwalPage,
     TambaheventPage,
     AdduserPage,
-    TambahMemberPage
+    TambahMemberPage,
+    ProfilePage
   ],
   providers: [
     StatusBar,
