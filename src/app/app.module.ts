@@ -23,7 +23,7 @@ import { AdduserPage } from '../pages/adduser/adduser';
 import { AuthService } from '../services/authService';
 import { HttpModule } from '@angular/http';
 import { ProfilePage } from '../pages/profile/profile';
-
+import { LocalNotifications } from '@ionic-native/local-notifications';
 
 @NgModule({
   declarations: [
@@ -71,7 +71,8 @@ import { ProfilePage } from '../pages/profile/profile';
     StatusBar,
     SplashScreen,
     AuthService,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    LocalNotifications
   ]
 })
 export class AppModule {}

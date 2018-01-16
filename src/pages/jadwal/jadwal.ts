@@ -7,6 +7,8 @@ import { AuthService } from '../../services/authService';
 import firebase from "firebase";
 import 'rxjs';
 import { TambahjadwalPage } from '../tambahjadwal/tambahjadwal';
+import { LocalNotifications } from '@ionic-native/local-notifications';
+import { Platform } from 'ionic-angular/platform/platform';
 
 
 
@@ -29,8 +31,20 @@ export class JadwalPage {
   constructor(public navCtrl: NavController,
    public navParams: NavParams,
    private authService: AuthService,
-   private modalCtrl: ModalController) {
+   private modalCtrl: ModalController,
+   private localNotifications: LocalNotifications,
+   private platform: Platform) {
     
+  }
+
+  notif(){
+    this.platform.ready().then(() => {
+      this.localNotifications.schedule({
+        title: 'My First Notification',
+        text: 'Hello World',
+        at: new Date(new Date().getTime() + 3600)
+     });
+    });
   }
 
   ionViewWillEnter() {
