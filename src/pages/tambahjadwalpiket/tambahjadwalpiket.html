@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Tambahkan Jadwal Piket</ion-title>
+    <ion-title>Jadwal Piket<img src="../assets/imgs/logo2.png" alt="logo_medic" width="10%"></ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -20,26 +20,23 @@
           <ion-item>
             <ion-label fixed>Hari</ion-label>
             <ion-select name="hari" ngModel required>
-              <ion-option value="senin">senin</ion-option>
-              <ion-option value="selasa">selasa</ion-option>
-              <ion-option value="rabu">rabu</ion-option>
-              <ion-option value="kamis">kamis</ion-option>
-              <ion-option value="jumat">jumat</ion-option>
-              <ion-option value="sabtu">sabtu</ion-option>
-              <ion-option value="minggu">minggu</ion-option>
+              <ion-option value="Senin">Senin</ion-option>
+              <ion-option value="Selasa">Selasa</ion-option>
+              <ion-option value="Rabu">Rabu</ion-option>
+              <ion-option value="Kamis">Kamis</ion-option>
+              <ion-option value="Jumat">Jumat</ion-option>
+              <ion-option value="Sabtu">Sabtu</ion-option>
             </ion-select>
           </ion-item>
           <ion-item>
-          <ion-label fixed>Waktu Mulai</ion-label>
-          <ion-datetime displayFormat="HH:mm" name="waktumulai" clearInput ngModel required></ion-datetime>
+            <ion-label fixed>Waktu</ion-label>
+            <ion-select name="waktu" ngModel required>
+              <ion-option value="08.00 - 11.00">08.00 - 11.00</ion-option>
+              <ion-option value="11.00 - 14.00">11.00 - 14.00</ion-option>
+              <ion-option value="14.00 - 17.00">14.00 - 17.00</ion-option>
+            </ion-select>
           </ion-item>
-        <ion-item>
-          <ion-label fixed>Waktu Selesai</ion-label>
-          <ion-datetime displayFormat="HH:mm" name="waktuselesai" clearInput ngModel required></ion-datetime>
-        </ion-item>
-          
-          <!-- <p *ngIf="y==false" style="color:red; float:right">{{error}}</p> -->
         </ion-list>
-        <button ion-button type="submit" color="secondary" block [disabled]="!f.valid">Tambahkan Jadwal</button>
+        <button ion-button type="submit" color="medic" block [disabled]="!f.valid">Atur Jadwal</button>
       </form>
 </ion-content>
