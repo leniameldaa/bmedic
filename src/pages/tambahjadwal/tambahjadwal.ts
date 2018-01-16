@@ -27,16 +27,15 @@ export class TambahjadwalPage {
   }
 
   onSubmit() {
-    // tambah ke db (3 jam ngerjainnya)
-    var db = firebase.database().ref('rapatTable/'+this.studentForm.value.nama);
+    var db = firebase.database().ref('rapatTable/'+this.rapatForm.value.nama);
     db.set({
-      namaRapat: this.studentForm.value.nama,
-      tanggalRapat: this.studentForm.value.tgl,
-      waktuRapat: this.studentForm.value.wkt,
-      tempatRapat: this.studentForm.value.tempat
+      namaRapat: this.rapatForm.value.nama,
+      tanggalRapat: this.rapatForm.value.tgl,
+      waktuRapat: this.rapatForm.value.wkt,
+      tempatRapat: this.rapatForm.value.tempat
     });
     this.presentToast("Rapat berhasil ditambahkan")
-    console.log(this.studentForm.value);
+    console.log(this.rapatForm.value);
     let loading = this.loadingCtrl.create({
       spinner: 'crescent',
       content: 'Processing'
@@ -48,7 +47,7 @@ export class TambahjadwalPage {
     loading.dismiss()
   }
 
-  studentForm: FormGroup
+  rapatForm: FormGroup
   
   ngOnInit() {
     this.initializeForm();
@@ -56,7 +55,7 @@ export class TambahjadwalPage {
   
   
   private initializeForm() {
-    this.studentForm = new FormGroup({
+    this.rapatForm = new FormGroup({
       nama: new FormControl(null, Validators.required),
       tgl: new FormControl(null, Validators.required),
       wkt: new FormControl(null, Validators.required),

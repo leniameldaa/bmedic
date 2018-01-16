@@ -12,42 +12,53 @@
               <ion-icon name="menu"></ion-icon>
             </button>
         </ion-buttons>
-      <ion-title>Notulen Rapat</ion-title>
-
+      <ion-title>Notulen Rapat<img src="../assets/imgs/logo2.png" alt="logo_medic" width="10%"></ion-title>
     </ion-navbar>
   </ion-header>
   
   
   <ion-content padding >
+      <ion-list>
+          <ion-list-header color="medic">Notulen Tersimpan</ion-list-header>
+          <ion-item>
+              <ion-label color="medic" floating>Judul</ion-label>
+              <ion-input type="text" value="{{this.rapat.judulNotulen}}" readonly></ion-input>
+            </ion-item>
+          <ion-item>
+            <ion-label color="medic" floating>Tanggal</ion-label>
+            <ion-input type="text" value="{{this.rapat.tglNotulen}}" readonly></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label color="medic" floating>Tanggal</ion-label>
+              <ion-input type="text" value="{{this.rapat.notulenRapat}}" readonly></ion-input>
+            </ion-item>
+      </ion-list>
     <form #f="ngForm" (ngSubmit)="submit(f)" *ngIf="this.authService.user.admin">
     <ion-list>
+      <ion-list-header color="medic">Edit Notulen</ion-list-header>
       <ion-item>
-        <ion-label color="primary" fixed>Judul</ion-label>
+        <ion-label color="medic" fixed>Judul</ion-label>
         <ion-input name="judul" type="text" placeholder="Judul Notulen" ngModel></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label color="primary" fixed>Tanggal </ion-label>
-        <ion-datetime ngModel name="tgl" displayFormat="MM/DD/YYYY" placeholder="Tanggal Notulen" [(ngModel)]="myDate"></ion-datetime>
+        <ion-label color="medic" fixed>Tanggal</ion-label>
+        <ion-datetime ngModel name="tgl" displayFormat="DD MMM YYYY" placeholder="Tanggal Notulen" ngModel></ion-datetime>
       </ion-item>
       <ion-item>
-          <ion-label color="primary" stacked>Isi Notulen</ion-label>
+          <ion-label color="medic" floating>Isi Notulen</ion-label>
         <!-- <ion-textarea #myInput id="myInput" rows="1" maxLength="500" (keyup)="resize()" [(ngModel)]="model"></ion-textarea>  -->
         <ion-textarea ngModel name="isi"></ion-textarea>
       </ion-item>
     </ion-list>
 <!--  button ion-button full color="secondary" (click)="notulen(rapat)">Save Notulen</button>-->
-   <button ion-button full color="secondary" type="submit">Save Notulen</button>
+   <button ion-button full color="secondary" type="submit">Simpan</button>
 
     
   </form>
 
 
   
-        <ion-list>
-         <ion-item> Judul: {{this.rapat.judulNotulen}}</ion-item>
-         <ion-item> Tanggal: {{this.rapat.tglNotulen}}</ion-item>
-          <ion-item> Isi Notulen: {{this.rapat.notulenRapat}}</ion-item> 
-        </ion-list>
+    
       
 
   <!-- <ion-list>
