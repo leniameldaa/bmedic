@@ -7,30 +7,51 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Jasa Medic</ion-title>
-    <ion-buttons *ngIf="this.authService.user.admin" end>
+    <ion-buttons start>
+        <button ion-button menuToggle >
+          <ion-icon style="color:#40B745" name="menu"></ion-icon>
+        </button>
+    </ion-buttons>
+    <ion-title>Jasa Medic<img src="../assets/imgs/logo2.png" alt="logo_medic" width="10%"></ion-title>
+    <!-- <ion-buttons *ngIf="this.authService.user.admin" end>
       <button ion-button (click)="tambah()">
         <ion-icon name="add"></ion-icon>
       </button>
-    </ion-buttons>
+    </ion-buttons> -->
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+    <ion-fab bottom center *ngIf="this.authService.user.admin">
+      <button ion-fab color='medic'(click)="tambah()"><ion-icon name="medkit"></ion-icon><ion-icon name="add"></ion-icon></button>
+    </ion-fab>
     <ion-card *ngFor="let event of events" text-center>
         <ion-card-header color='secondary' text-center>
           {{event.key}}
         </ion-card-header>
         <ion-card-content>
           <ion-list>
-            <ion-item> Lokasi: {{event.lokasi}}</ion-item>
-            <ion-item> Kapan: {{event.tanggal}} {{event.waktu}}</ion-item>
-            <ion-item> Jam: {{event.waktu}}</ion-item>
+            <ion-item>
+              <ion-label color="medic" fixed>Lokasi</ion-label>
+              <ion-input type="text" readonly value="{{event.lokasi}}"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label color="medic" fixed>Tanggal</ion-label>
+              <ion-input type="text" readonly value="{{event.tanggal}}"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label color="medic" fixed>Waktu</ion-label>
+              <ion-input type="text" readonly value="{{event.waktu}}"></ion-input>
+            </ion-item>
+            <!-- <ion-item> Lokasi : {{event.lokasi}}</ion-item>
+            <ion-item> Kapan  : {{event.tanggal}}</ion-item>
+            <ion-item> Jam    : {{event.waktu}}</ion-item> -->
           </ion-list>
-          <button  ion-button color='primary' (click)="detail(event)">Detail</button>
-          <button ion-button color='primary' (click)="daftar(event)" >Daftar</button>
+          <button ion-button color='medic' (click)="daftar(event)" style="float:right">Daftar</button>
+          <button ion-button color='medic' (click)="detail(event)" style="float:right"><ion-icon name="eye"></ion-icon></button>
+          
           <!--<button *ngIf="this.authService.user.admin==true" ion-button color='primary' (click)="daftar(event)" >Liat pendaftar</button>
           *ngIf="this.authService.user.admin!=true"
         *ngIf="this.authService.user.admin!=true"-->

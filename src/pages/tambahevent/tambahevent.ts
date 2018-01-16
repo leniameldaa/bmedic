@@ -55,7 +55,7 @@ export class TambaheventPage {
       nPendaftar: "0",
       penyelenggara: form.value.penyelenggara,
       tanggal: form.value.tgl,
-      waktu: form.value.wkt + "-"+ form.value.sls
+      waktu: form.value.wkt + " - "+ form.value.sls
     })
 
     this.presentToast("Event berhasil ditambahkan")

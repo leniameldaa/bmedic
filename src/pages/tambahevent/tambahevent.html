@@ -15,41 +15,42 @@
 <ion-content padding>
   <form #f="ngForm" (ngSubmit)="submit(f)">
       <ion-list>
+        <ion-list-header color="medic">Detail Acara</ion-list-header>
         <ion-item>
-          <ion-label stacked>Nama Event</ion-label>
+          <ion-label floating>Nama Acara</ion-label>
           <ion-input type="text"  name="nama" clearInput ngModel required></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label stacked>Deskripsi Event</ion-label>
+          <ion-label floating>Deskripsi Acara</ion-label>
           <ion-input type="text"  name="deskripsi" clearInput ngModel></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label stacked>Penyelenggara Event</ion-label>
+          <ion-label floating>Penyelenggara Acara</ion-label>
           <ion-input type="text"  name="penyelenggara" clearInput ngModel required></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label stacked>Tanggal</ion-label>
-          <ion-datetime displayFormat="MMM DD, YYYY" name="tgl" clearInput ngModel required></ion-datetime>
+          <ion-label floating>Tanggal</ion-label>
+          <ion-datetime displayFormat="DD MMM YYYY" name="tgl" clearInput ngModel required></ion-datetime>
         </ion-item>
         <ion-item>
-          <ion-label stacked>Waktu Mulai</ion-label>
+          <ion-label floating>Waktu Mulai</ion-label>
           <ion-datetime displayFormat="HH:mm" name="wkt" clearInput ngModel required></ion-datetime>
           </ion-item>
         <ion-item>
-          <ion-label stacked>Waktu Selesai</ion-label>
+          <ion-label floating>Waktu Selesai</ion-label>
           <ion-datetime displayFormat="HH:mm" name="sls" clearInput ngModel required></ion-datetime>
         </ion-item>
         <ion-item>
-          <ion-label stacked>Tempat</ion-label>
+          <ion-label floating>Tempat</ion-label>
           <ion-textarea  name="tempat" clearInput ngModel required></ion-textarea>
         </ion-item>
         <ion-item>
-            <ion-label stacked>Maksimal Pendaftar</ion-label>
-            <ion-input type="number"  name="maks" max="10" clearInput ngModel required></ion-input>
+            <ion-label floating>Maksimal Pendaftar</ion-label>
+            <ion-input type="number" name="maks" max="10" clearInput ngModel required></ion-input>
           </ion-item>
         <!-- <p *ngIf="y==false" style="color:red; float:right">{{error}}</p> -->
       </ion-list>
-      <button ion-button type="submit" color="secondary" block [disabled]="!f.valid">Tambahkan Event</button>
+      <button ion-button type="submit" color="secondary" block [disabled]="!f.valid">Tambah Acara</button>
     </form>
 <!-- <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
     <ion-list>
