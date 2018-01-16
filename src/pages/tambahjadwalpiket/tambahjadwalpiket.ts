@@ -32,11 +32,11 @@ export class TambahjadwalpiketPage {
 
   submit(form: NgForm){
 
-    firebase.database().ref('userTable/'+ this.user.nama).update({
-      
-      hari: form.value.hari,
-      waktumulai: form.value.waktumulai,
-      waktuselesai: form.value.waktuselesai
+    firebase.database().ref('userTable/'+ this.user.key).update({
+      jadwal: form.value.hari+", "+ form.value.waktumulai + "-"+form.value.waktuselesai
+      // hari: form.value.hari,
+      // waktumulai: form.value.waktumulai,
+      // waktuselesai: form.value.waktuselesai
       
     })
     console.log(this.user.nama);

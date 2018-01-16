@@ -33,7 +33,8 @@ export class TambahMemberPage {
       jadwal: "",
       nama: form.value.nama,
       prodi: form.value.prodi,
-      angkatan: form.value.angkatan
+      angkatan: form.value.angkatan,
+      key: this.navParams.get('uid')
     })
     this.presentToast("Informasi berhasil disimpan");
     

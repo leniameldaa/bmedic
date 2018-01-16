@@ -29,7 +29,7 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
 })
 export class JadwalPage {
   user = {}
-  users : Array<User> = []
+  //users : Array<User> = []
   events : Array<Event> = []
 
   @ViewChild('sideSignContent') nav : NavController;
@@ -98,16 +98,16 @@ export class JadwalPage {
         this.user = data.val()
     })
   }
-  getJadwalpiket(){
-    var userTable = firebase.database().ref("userTable/")
-    return userTable.on('value', data =>{
-      this.users = []
-      data.forEach( jadwal =>{
-          this.users.push(jadwal.val())
-          // console.log(this.events)
-        return false
-      })
-    })
+  // getJadwalpiket(){
+  //   var userTable = firebase.database().ref("userTable/")
+  //   return userTable.on('value', data =>{
+  //     this.users = []
+  //     data.forEach( jadwal =>{
+  //         this.users.push(jadwal.val())
+  //         // console.log(this.events)
+  //       return false
+  //     })
+  //   })
   }
 
 
