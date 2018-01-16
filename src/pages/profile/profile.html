@@ -19,22 +19,30 @@
       <ion-list>
         <ion-item>
           <ion-label color="medic" floating>Nama</ion-label>
-          <ion-input type="text" name="nama" required clearInput ngModel value="{{user.nama}}"></ion-input>
+          <ion-input readonly type="text" name="nama" ngModel value="{{user.nama}}"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label color="medic" floating>Prodi</ion-label>
+          <!-- <ion-label color="medic" floating>Prodi</ion-label>
             <ion-select name="prodi" ngModel required>
-              {{user.prodi}}
-              <!-- <ion-option *ngFor="let item of items" value="{{item.value}}" checked="{{item.checked}}">{{item.text}}</ion-option> -->
               <ion-option value="IT" selected>Teknik Informatika</ion-option>
               <ion-option value="Man">Management</ion-option>
               <ion-option value="Akun">Akutansi</ion-option>
               <ion-option value="Dkv">DKV</ion-option>
               <ion-option value="SI">Sistem Informasi</ion-option>
               <ion-option value="SK">Sistem Komputer</ion-option>
-            </ion-select>
+            </ion-select> -->
+          <ion-label color="medic" floating>Prodi</ion-label>
+          <ion-input readonly type="text" name="prodi" ngModel value="{{user.prodi}}"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label color="medic" floating>Angkatan</ion-label>
+            <ion-input readonly type="text" name="angkatan" ngModel value="{{user.angkatan}}"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label color="medic" floating>Jenis Kelamin</ion-label>
+            <ion-input readonly type="text" name="gender" ngModel value="{{user.gender}}"></ion-input>
         </ion-item>
       </ion-list>
-      <button ion-button type="submit" color="medic" block [disabled]="!f.valid">Tambah</button>
+      <!-- <button ion-button type="submit" color="medic" block [disabled]="!f.valid">Edit</button> -->
     </form>
 </ion-content>

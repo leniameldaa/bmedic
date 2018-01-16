@@ -1,3 +1,21 @@
 page-profile {
 
 }
+
+.centercontent{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.centercontent2{
+    position: fixed;
+    top:20%;
+    left: 50%;
+    width: 30%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}

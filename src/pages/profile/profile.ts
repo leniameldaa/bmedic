@@ -18,38 +18,22 @@ import { User } from '../../data/user.interface';
 export class ProfilePage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private authService: AuthService,) 
   {
-    this.getProfile();
+    //this.getProfile();
   }
 
-  userData : Array<User> = []
-  //user = {}
-  user:any ={}
+  user = {}
 
   ionViewWillEnter() {
-    this.user;
+    this.user = this.authService.user
   }
 
   
   getProfile(){
-    var userTable = firebase.database().ref("userTable/")
+    var uId = this.authService.getActiveUser().uid
+    var userTable = firebase.database().ref("userTable/").child(uId)
     return userTable.on('value', data =>{
-      this.userData = []
-      data.forEach( user =>{
-        this.userData.push(user.val())
-         console.log(this.userData)
-        return false
-      })
+        this.user = data.val()
     })
   }  
-
-
-  // getProfile(){
-  //     var uId = this.authService.getActiveUser().uid
-  //     var userTable = firebase.database().ref("userTable/").child(uId)
-  //     return userTable.on('value', data =>{
-  //         this.user = data.val()
-  //     })
-  // }
-
 
 }
