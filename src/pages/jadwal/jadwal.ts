@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController , ToastController } from 'ionic-angular';
 
 import { User } from '../../data/user.interface';
+import { Event } from "../../data/event.interface";
 
 import { AuthService } from '../../services/authService';
 import firebase from "firebase";
@@ -29,6 +30,8 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
 export class JadwalPage {
   user = {}
   users : Array<User> = []
+  events : Array<Event> = []
+
   @ViewChild('sideSignContent') nav : NavController;
   
   constructor(public navCtrl: NavController,
@@ -38,6 +41,7 @@ export class JadwalPage {
    private localNotifications: LocalNotifications,
    private platform: Platform,private toastCtrl: ToastController) {
     this.getJadwalpiket()
+    console.log(this.events)
   }
 
   notif(){
@@ -53,6 +57,8 @@ export class JadwalPage {
     console.log('ionViewDidLoad JadwalpiketPage');
   }
   ionViewWillEnter() {
+    this.events.length = 0
+    this.getEvent()
     // this.getUserData()
     // console.log(this.authService.user)
     this.user = this.authService.user
@@ -112,5 +118,19 @@ export class JadwalPage {
       position: 'top'
     });
     toast.present();
+  }
+
+  getEvent(){
+    var eventTable = firebase.database().ref("eventTable/")
+    return eventTable.on('value', data =>{
+      data.forEach( event =>{
+        var temp = event.val()
+        if(temp.nPendaftar.includes(this.authService.user.nama)){
+          this.events.push(event.val())
+        }
+        // console.log(this.events)
+        return false
+      })
+    })
   }
 }

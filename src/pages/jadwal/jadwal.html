@@ -39,14 +39,27 @@
       </ion-card-header>
       <ion-card-content>
   <ion-list>
-    <!--<ion-item text-center color='medic'>
-      {{user.jadwal}}
-    </ion-item>-->
     <ion-item text-center color='medic'> Hari: {{user.hari}}</ion-item>
     <ion-item text-center color='medic'> Waktu Mulai: {{user.waktumulai}}</ion-item>
     <ion-item text-center color='medic'> Waktu Selesai: {{user.waktuselesai}}</ion-item>
   </ion-list>
   <button  ion-button color='primary' (click)="tambah(user)">Atur Jadwal</button>
+</ion-card-content>
+</ion-card>
+
+<ion-card *ngFor="let event of events" text-center>
+    <ion-card-header color='secondary' text-center>
+      {{event.key}}
+    </ion-card-header>
+    <ion-card-content>
+<ion-list>
+  <!--<ion-item text-center color='medic'>
+    {{user.jadwal}}
+  </ion-item>-->
+  <ion-item text-center color='primary'> Hari: {{event.tanggal}}</ion-item>
+  <ion-item text-center color='primary'> Waktu Mulai: {{event.waktu}}</ion-item>
+</ion-list>
+<button  ion-button color='primary' (click)="tambah(user)">Atur Jadwal</button>
 </ion-card-content>
 </ion-card>
   <!-- <button *ngIf="user.admin" ion-button block (click)="addJadwal()">Tambah Jadwal Anggota</button> -->
