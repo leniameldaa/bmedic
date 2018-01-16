@@ -6,7 +6,7 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-buttons *ngIf="this.authService.user.admin" end>
+    <ion-buttons *ngIf="this.authService.user.admin" start>
         <button ion-button menuToggle >
           <ion-icon style="color:#40B745" name="menu"></ion-icon>
         </button>
@@ -34,7 +34,7 @@
     </ion-fab-list> -->
   </ion-fab>
   <ion-card *ngFor="let user of users" text-center>
-      <ion-card-header color='secondary' text-center>
+      <ion-card-header color='medic' text-center>
         {{user.nama}}
       </ion-card-header>
       <ion-card-content>
