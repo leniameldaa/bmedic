@@ -48,8 +48,9 @@ export class MyApp {
 
     firebase.auth().onAuthStateChanged(user=>{
       if(user){
-        var uId = this.authService.getActiveUser().uid
+        var uId = this.authService.getActiveUser().uid;
         //console.log(uId);
+        var user = firebase.auth().currentUser;
         var userTable = firebase.database().ref("userTable/").child(uId)
         userTable.on('value', data =>{
             if(data.val() != null){
@@ -63,7 +64,7 @@ export class MyApp {
             }
             else{
               //console.log("masuk sini")
-              this.nav.push(TambahMemberPage);
+              this.nav.push(TambahMemberPage, {uid:uId, email:user.email});
             }
       })
         // return userTable.on('value', data =>{

@@ -13,46 +13,46 @@
 </ion-header>
 
 <ion-content padding>
-  <!--<form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+  <form #f="ngForm" (ngSubmit)="tambahInformasiMember(f)">
       <ion-list>
-        <ion-list-header color="primary">Tambah Member</ion-list-header>
-        
+        <ion-list-header color="primary">Masukkan Informasi Member</ion-list-header>     
         <ion-item>
             <ion-thumbnail item-start>
                 <img src="img/thumbnail-puppy-1.jpg">
-              </ion-thumbnail>
-              
-          <ion-label fixed>Nama</ion-label>
-          <ion-textarea placeholder="Nama" formControlName="nama" ></ion-textarea>
+            </ion-thumbnail>
+        </ion-item>
+        <ion-item>
+          <ion-label color="medic" floating>Nama</ion-label>
+          <ion-input type="text" name="nama" ngModel required></ion-input>
         </ion-item>
           <ion-item>
-            <ion-label>Prodi</ion-label>
-            <ion-select [(ngModel)]="prodi">
-              <ion-option value="it">Teknik Informatika</ion-option>
-              <ion-option value="mene">Menegement</ion-option>
-              <ion-option value="akun">Akutansi</ion-option>
-              <ion-option value="dkv">DKV</ion-option>
-              <ion-option value="si">Sistem Informasi</ion-option>
-              <ion-option value="sk">Sistem Komputer</ion-option>
+            <ion-label color="medic" floating>Prodi</ion-label>
+            <ion-select name="prodi" ngModel required>
+              <ion-option value="IT">Teknik Informatika</ion-option>
+              <ion-option value="Man">Management</ion-option>
+              <ion-option value="Akun">Akutansi</ion-option>
+              <ion-option value="Dkv">DKV</ion-option>
+              <ion-option value="SI">Sistem Informasi</ion-option>
+              <ion-option value="SK">Sistem Komputer</ion-option>
             </ion-select>
           </ion-item>
           <ion-item>
-            <ion-label>Angkatan</ion-label>
-            <ion-select [(ngModel)]="angkatan">
+            <ion-label color="medic" floating>Angkatan</ion-label>
+            <ion-select name="angkatan" ngModel required>
               <ion-option value="2016">2016</ion-option>
               <ion-option value="2017">2017</ion-option>
               <ion-option value="2018">2018</ion-option>
             </ion-select>
           </ion-item>
           <ion-item>
-            <ion-label>Jenis Kelamin</ion-label>
-            <ion-select [(ngModel)]="jeniskelamin">
-              <ion-option value="perempuan">Perempuan</ion-option>
+            <ion-label color="medic" floating>Jenis Kelamin</ion-label>
+            <ion-select name="jeniskelamin" ngModel required>
               <ion-option value="laki">Laki-Laki</ion-option>
+              <ion-option value="perempuan">Perempuan</ion-option>
             </ion-select>
           </ion-item>
       </ion-list>
-      <button ion-button type="submit" block color="secondary" [disabled]="!studentForm.valid">Submit</button>
-    </form>-->
+      <button ion-button type="submit" block color="medic" [disabled]="!f.valid">Simpan</button>
+    </form>
 </ion-content>
 
