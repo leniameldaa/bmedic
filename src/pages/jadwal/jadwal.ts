@@ -7,9 +7,11 @@ import { AuthService } from '../../services/authService';
 import firebase from "firebase";
 import 'rxjs';
 import { TambahjadwalPage } from '../tambahjadwal/tambahjadwal';
-import { LocalNotifications } from '@ionic-native/local-notifications';
+// import { LocalNotifications } from '@ionic-native/local-notifications';
 import { Platform } from 'ionic-angular/platform/platform';
 import { TambahjadwalpiketPage} from '../tambahjadwalpiket/tambahjadwalpiket';
+import { LocalNotifications } from '@ionic-native/local-notifications';
+
 
 
 /**
@@ -25,7 +27,6 @@ import { TambahjadwalpiketPage} from '../tambahjadwalpiket/tambahjadwalpiket';
   templateUrl: 'jadwal.html',
 })
 export class JadwalPage {
-
   user = {}
   users : Array<User> = []
   @ViewChild('sideSignContent') nav : NavController;
@@ -96,15 +97,9 @@ export class JadwalPage {
     return userTable.on('value', data =>{
       this.users = []
       data.forEach( jadwal =>{
-
           this.users.push(jadwal.val())
-        
-
           // console.log(this.events)
         return false
-        
-        
-        
       })
     })
   }

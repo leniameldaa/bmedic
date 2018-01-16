@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import firebase from "firebase";
 import { AuthService } from '../../services/authService';
 import { User } from '../../data/user.interface';
+import { TambahMemberPage } from '../tambah-member/tambah-member';
 /**
  * Generated class for the ProfilePage page.
  *
@@ -35,5 +36,9 @@ export class ProfilePage {
         this.user = data.val()
     })
   }  
+
+  edit(){
+    this.navCtrl.push(TambahMemberPage)
+  }
 
 }

@@ -8,4 +8,5 @@ export interface User {
     waktuselesai: string
     waktumulai: string
     hari: string
+    key: string;
 }

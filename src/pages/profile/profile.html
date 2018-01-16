@@ -43,6 +43,6 @@
             <ion-input readonly type="text" name="gender" ngModel value="{{user.gender}}"></ion-input>
         </ion-item>
       </ion-list>
-      <!-- <button ion-button type="submit" color="medic" block [disabled]="!f.valid">Edit</button> -->
     </form>
+    <button ion-button (click)="edit()" color="medic" blocked>Edit</button>
 </ion-content>
