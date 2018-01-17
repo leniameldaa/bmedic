@@ -24,7 +24,7 @@
 
 
 <ion-content padding>
-    <ion-fab bottom center *ngIf="this.authService.user.admin">
+    <ion-fab bottom center *ngIf="user.admin">
       <button ion-fab color='medic'(click)="tambah()"><ion-icon name="medkit"></ion-icon><ion-icon name="add"></ion-icon></button>
     </ion-fab>
     <ion-card *ngFor="let event of events" text-center>
