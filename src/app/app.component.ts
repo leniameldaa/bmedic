@@ -42,7 +42,8 @@ export class MyApp {
     firebase.initializeApp({
       apiKey: "AIzaSyBh-3YvuV6tkKoBKeueUl8Tj4ZZ8I0QwYM",
       authDomain: "bmedic-app.firebaseapp.com",
-      databaseURL: "https://bmedic-app.firebaseio.com"      
+      databaseURL: "https://bmedic-app.firebaseio.com",
+      storageBucket: "bmedic-app.appspot.com"      
     });
 
     this.authService.logout()
