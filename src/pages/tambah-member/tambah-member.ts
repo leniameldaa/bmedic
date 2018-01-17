@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angu
 import { NgForm } from '@angular/forms';
 import firebase from "firebase";
 import { TabsPage } from '../tabs/tabs';
+
+import { AuthService } from '../../services/authService';
 /**
  * Generated class for the TambahMemberPage page.
  *
@@ -17,7 +19,7 @@ import { TabsPage } from '../tabs/tabs';
 })
 export class TambahMemberPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public toastCtrl: ToastController, private authService: AuthService ) {
   }
 
   ionViewDidLoad() {
@@ -26,17 +28,33 @@ export class TambahMemberPage {
 
   tambahInformasiMember(form: NgForm)
   {
-    firebase.database().ref('userTable/'+ this.navParams.get('uid')).set({
-      admin: false,
-      email: this.navParams.get('email'),
-      gender: form.value.jeniskelamin,
-      jadwal: "",
-      nama: form.value.nama,
-      prodi: form.value.prodi,
-      angkatan: form.value.angkatan,
-      key: this.navParams.get('uid')
-    })
-    this.presentToast("Informasi berhasil disimpan");
+    if(this.authService.user== null){
+      firebase.database().ref('userTable/'+ this.navParams.get('uid')).set({
+        admin: false,
+        email: this.navParams.get('email'),
+        gender: form.value.jeniskelamin,
+        jadwal: "",
+        nama: form.value.nama,
+        prodi: form.value.prodi,
+        angkatan: form.value.angkatan,
+        key: this.navParams.get('uid')
+      })
+      this.presentToast("Informasi berhasil disimpan");
+    }
+    else{
+      //berarti edit doang
+      firebase.database().ref('userTable/'+ this.authService.user.key).update({
+        // admin: false,
+        // email: this.navParams.get('email'),
+        gender: form.value.jeniskelamin,
+        // jadwal: "",
+        nama: form.value.nama,
+        prodi: form.value.prodi,
+        angkatan: form.value.angkatan
+      })
+      this.presentToast("Informasi berhasil disimpan");
+    }
+    
     
   }
 
