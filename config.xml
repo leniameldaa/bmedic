@@ -2,7 +2,7 @@
 <widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>b'Medic</name>
     <description>Aplikasi Internal UMN Medical Center</description>
-    <author email="bmedicofficial@gmail.com" href="http://umn.ac.id/">Team b'Medic</author>
+    <author email="bmedicofficial@gmail.com" href="http://umn.ac.id/">Team B'Medic</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
